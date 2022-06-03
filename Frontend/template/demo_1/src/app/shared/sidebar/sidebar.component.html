@@ -1,0 +1,169 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item navbar-brand-mini-wrapper">
+            <a class="nav-link navbar-brand brand-logo-mini" href="index.html"><img src="../../../assets/images/iconoxlaser/x-laser.svg" alt="logo" width="30" height="15" /></a>
+        </li>
+        <li class="nav-item nav-profile">
+            <a href="#" class="nav-link">
+                <div class="profile-image">
+                    <img class="img-xs rounded-circle" src="../../../assets/images/iconoxlaser/x-laser.svg" alt="profile image">
+                    <div class="dot-indicator bg-success"></div>
+                </div>
+                <div class="text-wrapper">
+                    <p class="profile-name">{{nameSideBar}}</p>
+
+                    <p class="designation" translate>{{rolSideBar}}</p>
+                </div>
+                <div class="icon-container">
+                    <i class="icon-bubbles"></i>
+                    <div class="dot-indicator bg-danger"></div>
+                </div>
+            </a>
+        </li>
+        <li class="nav-item nav-category">
+            <span class="nav-link" translate><p style="color: rgb(211, 29, 29); margin-bottom: 25px;">SERVICIOS</p></span>
+        </li>
+
+        <ng-container *ngIf="permitirEnfermera==true">
+            <li class="nav-item" [ngClass]="{ 'active': gestionarTrabajador.isActive }">
+                <a class="nav-link" routerLink="/gestionar-trabajador" routerLinkActive #gestionarTrabajador="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Gestionar Trabajador</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+        </ng-container>
+
+        <ng-container *ngIf="permitirAdmin==true">
+
+            <li class="nav-item" [ngClass]="{ 'active': cambiartrabajador.isActive }">
+                <a class="nav-link" routerLink="/cambiarc" routerLinkActive #cambiartrabajador="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Gestionar Trabajador</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+
+            <li class="nav-item" [ngClass]="{ 'active': visualizar.isActive }">
+                <a class="nav-link" routerLink="/dashboard" routerLinkActive #visualizar="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Visualizar Registros Tecnicos</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+
+        </ng-container>
+
+        <ng-container *ngIf="permitirJefe==true">
+
+            <li class="nav-item" [ngClass]="{ 'active': registrar.isActive }">
+                <a class="nav-link" routerLink="/dashboard" routerLinkActive #registrar="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Registrar Equipo</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+
+            <li class="nav-item" [ngClass]="{ 'active': gestionarE.isActive }">
+                <a class="nav-link" routerLink="/dashboard" routerLinkActive #gestionarE="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Gestionar Estado del Equipo</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+
+            <li class="nav-item" [ngClass]="{ 'active': asignarE.isActive }">
+                <a class="nav-link" routerLink="/dashboard" routerLinkActive #asignarE="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Asignar Equipo</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+
+            <li class="nav-item" [ngClass]="{ 'active': visualizarE.isActive }">
+                <a class="nav-link" routerLink="/dashboard" routerLinkActive #visualizarE="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Visualizar Equipo</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+        </ng-container>
+
+        <ng-container *ngIf="permitirCLiente==true">
+            <li class="nav-item" [ngClass]="{ 'active': registrarCliente.isActive }">
+                <a class="nav-link" routerLink="/dashboard" routerLinkActive #registrarCliente="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Registrar Cliente</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+            <li class="nav-item" [ngClass]="{ 'active': realizarreporte.isActive }">
+                <a class="nav-link" routerLink="/dashboard" routerLinkActive #realizarreporte="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Realizar Reporte</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+            <li class="nav-item" [ngClass]="{ 'active': RealizarCotizacion.isActive }">
+                <a class="nav-link" routerLink="/dashboard" routerLinkActive #RealizarCotizacion="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Realizar Cotizacion</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+            <li class="nav-item" [ngClass]="{ 'active': visualizarproducto.isActive }">
+                <a class="nav-link" routerLink="/dashboard" routerLinkActive #visualizarproducto="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Visualizar Producto</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+        </ng-container>
+
+        <ng-container *ngIf="permitirtecnico==true">
+
+            <li class="nav-item" [ngClass]="{ 'active': visualizarequipoasignado.isActive }">
+                <a class="nav-link" routerLink="/dashboard" routerLinkActive #visualizarequipoasignado="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Visualizar Equipo Asignado</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+
+            <li class="nav-item" [ngClass]="{ 'active': realizarregistroTec.isActive }">
+                <a class="nav-link" routerLink="/dashboard" routerLinkActive #realizarregistroTec="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Realizar Registro Tecnico</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+
+        </ng-container>
+
+        <ng-container *ngIf="permitirVendedor==true">
+
+            <li class="nav-item" [ngClass]="{ 'active': visualizacionCotiz.isActive }">
+                <a class="nav-link" routerLink="/dashboard" routerLinkActive #visualizacionCotiz="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Visualizar Cotizacion</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+
+            <li class="nav-item" [ngClass]="{ 'active': visualizacionRepor.isActive }">
+                <a class="nav-link" routerLink="/dashboard" routerLinkActive #visualizacionRepor="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Visualizar Reporte Seguimiento</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+
+            <li class="nav-item" [ngClass]="{ 'active': gestionarcontrato.isActive }">
+                <a class="nav-link" routerLink="/dashboard" routerLinkActive #gestionarcontrato="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Gestionar Contrato</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+
+        </ng-container>

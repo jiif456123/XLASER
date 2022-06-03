@@ -1,0 +1,50 @@
+<div class="head-div">
+    <h1 class="titulo"> Citas Virtuales</h1>
+
+</div>
+
+
+<div class="row">
+    <!--Tabla-->
+    <div class="table-responsive">
+        <table style="width: 100%" class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Motivo</th>
+                    <th scope="col">Fecha y Hora</th>
+                    <th scope="col">Especialidad</th>
+                    <th scope="col">Paciente</th>
+                    <th scope="col">Doctor</th>
+                    <th scope="col">Estado</th>
+                    <th class="text-right">Opciones</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cita of citas">
+                    <td>{{ cita.motivo.descripcion }}</td>
+                    <td>{{ cita.fechaHora | date: "medium" }}</td>
+                    <td>{{ cita.especialidad }}</td>
+                    <td>{{ cita.paciente.nombre }} {{cita.paciente.apellidoPaterno}}</td>
+                    <td>{{ cita.doctor}}</td>
+                    <td>{{ cita.estado == 1 ? 'Activa': 'Cancelada'}}</td>
+                    <td>{{ cita.paciente._id}}</td>
+                    <td class="text-center">
+                        <button (click)="dirigirSala(cita.salaNumero, cita.paciente._id)" class="btn btn-success btn-sm btn-block">
+                            <i class="mdi mdi-update mdi-18px">Ingresar</i>
+                        </button>
+
+                    </td>
+
+                    <td class="text-center">
+                        <!--    Generar dos botones no pasa con click-->
+                        <button id='getDatosPacienteID' (click)="getHistoriaByPacienteID(cita.paciente._id)" class="button-oculto">
+                            <i class="mdi mdi-update mdi-18px">getDataPaci</i>
+                        </button>
+
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

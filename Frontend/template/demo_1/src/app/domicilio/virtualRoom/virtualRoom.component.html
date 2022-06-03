@@ -1,0 +1,149 @@
+<div class="wrapper-room">
+    <div *ngFor="let video of videos">
+
+
+        <!-- <span *ngIf="video.userId !== currentUserId; else currentUserVideoLabel">{{ video.userId }}</span> -->
+        <ng-template #currentUserVideoLabel>
+            <!-- <span>You</span>-->
+
+        </ng-template>
+
+        <div class="wrapper-video">
+            <video [srcObject]="video.srcObject" (loadedmetadata)="onLoadedMetadata($event)" [muted]="video.muted">
+                </video>
+
+            <!--
+            <div class="label-name">
+                <span>{{nombreUsuario}}</span>
+            </div>
+
+            <div class="label-name">
+                <span>{{usuarioEntrante}}</span>
+            </div>
+                -->
+
+
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+</div>
+
+<ng-container *ngIf="doctorBoolean==true">
+    <div class="historia-clinica">
+
+        <div class="ordenCompra-div" style="border:1.5px solid rgb(211, 211, 211);">
+
+            <h3 style="margin-left: 10px;  color: #3498db; margin-top: 7px;">Historia Clinica</h3>
+            <hr>
+
+            <form #historiaClinicaUpdateForm="ngForm">
+                <div class="form-group form-inline" style="text-align: center;">
+
+                    <label class="labelFromR" style="padding-left: 250px;">ID HISTORIA CLINICA</label>
+                    <input type="text" name="_id" [(ngModel)]="historiaService.selectedHistoria._id" class="form-control">
+
+
+
+                    <label class="labelFromR" style="padding-left: 15px;">PacienteID</label>
+                    <input type="text" style="width: 250px;" name="paciente" [(ngModel)]="historiaService.selectedHistoria.paciente" class="form-control" placeholder="PacienteID" ngModel #paciente="ngModel">
+
+                </div>
+
+                <div class="form-group col-md-6">
+
+
+                </div>
+
+
+                <div class="container">
+                    <div class="row">
+
+
+                        <div class="col-sm" style="padding-left: 100px;">
+                            <label class="labelFromR">Medico</label>
+                            <input type="text" style="width: 100px;" name="medico" [(ngModel)]="historiaService.selectedHistoria.medico" class="form-control" placeholder="Medico" ngModel #medico="ngModel">
+                        </div>
+
+                        <div class="col-sm">
+                            <input type="hidden" name="especialidad" [(ngModel)]="historiaService.selectedHistoria.especialidad" class="form-control" placeholder="Estado" ngModel #especialidad="ngModel" pattern="[a-zA-Z0-9- ]+">
+                            <label class="labelFromR">Especialidad</label>
+                            <fieldset class="form-group">
+                                <select style="width: 100px; color: black;" [(ngModel)]="historiaService.selectedHistoria.especialidad" name="especialidad" class="form-control">
+                        <option value="Medicina General">Medicina General</option>
+                        <option value="Dental">Dental</option>
+                        <option value="Obtetricia">Obtetricia</option>
+                        <option value="Pediatria">Pediatria</option>
+                      </select>
+                            </fieldset>
+
+
+                        </div>
+
+
+
+
+                        <div class="col-sm">
+                            <label for="peso">Peso(Kilogramos)</label>
+                            <input type="text" style="width: 100px;" name="peso" [(ngModel)]="historiaService.selectedHistoria.peso" class="form-control" placeholder="Peso" ngModel #peso="ngModel">
+                        </div>
+                        <div class="col-sm">
+                            <label for="altura">Altura(metros)</label>
+                            <input type="text" style="width: 100px;" name="altura" [(ngModel)]="historiaService.selectedHistoria.altura" class="form-control" placeholder="Altura" ngModel #altura="ngModel">
+                        </div>
+                        <div class="col-sm">
+                            <label for="tension">Presión</label>
+                            <input type="text" style="width: 100px;" name="tension" [(ngModel)]="historiaService.selectedHistoria.tension" class="form-control" placeholder="Tension" ngModel #tension="ngModel">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group col-md-12">
+                    <label for="alergias">Alergias</label>
+                    <textarea name="alergias" [(ngModel)]="historiaService.selectedHistoria.alergias" class="form-control" placeholder="Precio Por Lote" ngModel #alergias="ngModel"></textarea>
+                </div>
+
+
+
+
+                <div class="form-group col-md-12">
+                    <label for="fecha">Fecha</label>
+                    <input name="fecha" type="date" class="form-control" placeholder="" ngModel #fecha="ngModel" />
+
+                </div>
+
+
+                <div class="form-group col-md-12">
+                    <label for="antecedentes">Evolución del paciente</label>
+                    <textarea name="antecedentes" [(ngModel)]="historiaService.selectedHistoria.antecedentes" class="form-control" placeholder="Antecedentes" ngModel #antecedentes="ngModel"></textarea>
+
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="historia">Historia</label>
+                    <textarea name="historia" [(ngModel)]="historiaService.selectedHistoria.historia" class="form-control" placeholder="Historia" ngModel #historia="ngModel"></textarea>
+
+
+
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="diagnostico">Diagnostico</label>
+                    <textarea name="diagnostico" [(ngModel)]="historiaService.selectedHistoria.diagnostico" class="form-control" placeholder="Diagnostico" ngModel #diagnostico="ngModel"></textarea>
+
+                </div>
+
+
+                <div class="row justify-content-center">
+                    <button type="button" style="width: 150px;" class="btn btn-primary" (click)="actualizarHistoria(historiaClinicaUpdateForm)">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</ng-container>

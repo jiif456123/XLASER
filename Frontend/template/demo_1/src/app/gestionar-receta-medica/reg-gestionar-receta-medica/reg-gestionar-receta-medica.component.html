@@ -1,0 +1,116 @@
+<div class="container-fluid">
+    <div class="row">
+
+    </div>
+    <form [formGroup]="formRegistrar" class="row">
+        <div class="form-group col-md-4">
+            <label for="dni">DNI Paciente</label>
+            <input formControlName="dni" type="text" (input)="buscarPaciente()" class="form-control" id="dni"
+                placeholder="..." />
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="nombrePaciente">Paciente</label>
+            <input readonly formControlName="nombrePaciente" type="text" class="form-control" id="nombrePaciente"
+                placeholder="..." />
+        </div>
+
+        <div class="col-md-2 d-flex justify-content-end" style="margin-bottom: 10px">
+            <button data-toggle="modal" data-target="#modalMedicina" #modalMedicina type="button"
+                class="btn btn-outline-primary" style="margin-bottom: 10px; float: right">
+                <i class="mdi mdi-pencil mdi-18px">Agregar medicina </i>
+            </button>
+        </div>
+
+        <div class="col-md-2 d-flex justify-content-end" style="margin-bottom: 10px">
+            <button type="button" (click)="registrar()" class="btn btn-outline-primary"
+                style="margin-bottom: 10px; float: right">
+                <i class="mdi mdi-pencil mdi-18px">Registrar </i>
+            </button>
+        </div>
+
+    </form>
+    <div class="row">
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover border border">
+                <thead style="color: black">
+                    <tr>
+                        <th class="text-center">Medicamento</th>
+                        <th class="text-center">Forma</th>
+                        <th class="text-center">Duracion</th>
+                        <th class="text-center">Cantidad</th>
+                        <th class="text-center">Dosis</th>
+                        <th class="text-center">Indicacion</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let p of medicamentos">
+                    <td class="text-center">{{ p.nombre }}</td>
+                    <td class="text-center">{{ p.forma }}</td>
+                    <td class="text-center">{{ p.duracion }}</td>
+                    <td class="text-center">{{ p.cantidad }}</td>
+                    <td class="text-center">{{ p.dosis }}</td>
+                    <td class="text-center">{{ p.indicacion }}</td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<!--Modal para añadir-->
+<div class="modal fade" id="modalMedicina" style="background-color: rgba(0, 0, 0, 0.5);" data-backdrop="false"
+    data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalMedicina" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar medicamento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div *ngIf="formMedicina" class="modal-body">
+                <form [formGroup]="formMedicina" class="row">
+
+                    <div class="form-group col-md-12">
+                        <label for="nombre">Nombre medicamento</label>
+                        <input formControlName="nombre" type="text" class="form-control" id="nombre"
+                            placeholder="..." />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="forma">Forma</label>
+                        <input formControlName="forma" type="text" class="form-control" id="forma" placeholder="..." />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="duracion">Duracion</label>
+                        <input formControlName="duracion" type="text" class="form-control" id="duracion"
+                            placeholder="..." />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="cantidad">Cantidad</label>
+                        <input formControlName="cantidad" type="number" class="form-control" id="cantidad"
+                            placeholder="..." />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="dosis">Dosis</label>
+                        <input formControlName="dosis" type="text" class="form-control" id="dosis"
+                            placeholder="..." />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="indicacion">Indicacion</label>
+                        <input formControlName="indicacion" type="text" class="form-control" id="indicacion"
+                            placeholder="..." />
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="agregar()" class="btn btn-primary">Agregar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1 class="text-left">
+                Gestionar pacientes con receta medica {{recetas.length}}
+            </h1>
+        </div>
+
+        <div class="col-md-4 d-flex justify-content-end" style="margin-bottom: 10px">
+            <div class="col-md-4 d-flex justify-content-end" style="margin-bottom: 10px">
+                <button [routerLink]="['/gestionar-receta-medica/registrar']" type="button" class="btn btn-outline-primary" style="margin-bottom: 10px; float: right">
+                <i class="mdi mdi-pencil mdi-18px">REGISTRAR </i>
+            </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover border border">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover border border">
+                        <thead style="color: black">
+                            <tr>
+                                <th class="text-center">Paciente</th>
+                                <th class="text-center">Fecha</th>
+                                <th class="text-center" colspan="1">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tr *ngFor="let p of recetas ">
+                            <td class="text-center">{{ p.paciente.nombre }} {{p.paciente.apellidoPaterno}}</td>
+                            <td class="text-center">{{ p.fecha | date: "dd/MM/yyyy"}}</td>
+
+                            <td class="text-center">
+                                <button [routerLink]="['/gestionar-receta-medica', p._id]" class="btn btn-success btn-sm btn-block">
+                                    <i class="mdi mdi-update mdi-18px">Ver Detalle</i>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </table>
+        </div>
+    </div>
+</div>

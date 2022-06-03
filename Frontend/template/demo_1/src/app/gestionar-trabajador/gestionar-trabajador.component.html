@@ -1,0 +1,218 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 d-flex justify-content-end" style="margin-bottom: 10px">
+            <input type="text" class="form-control" placeholder="Buscar" />
+        </div>
+
+        <div class="col-md-4 d-flex justify-content-end" style="margin-bottom: 10px">
+            <button (click)="abrirModal()" type="button" class="btn btn-outline-primary" style="margin-bottom: 10px; float: right">
+            <i class="mdi mdi-pencil mdi-18px">REGISTRAR </i>
+            <input data-toggle="modal" data-target="#modalRegistrar" #modalRegistrar type="hidden" name="button" />
+        </button>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover border border">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover border border">
+                        <thead style="color: black">
+                            <tr>
+                                <th class="text-center">Nombre</th>
+                                <th class="text-center">Apellidos</th>
+                                <th class="text-center">DNI</th>
+                                <th class="text-center">Correo</th>
+                                <th class="text-center">Celular</th>
+                                <th class="text-center">Rol</th>
+                                <th class="text-right" colspan="2">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tr *ngFor="let u of usuarios">
+                            <td class="text-center">{{ u.nombre }}</td>
+                            <td class="text-center">{{ u.apellido }}</td>
+                            <td class="text-center">{{ u.dni }}</td>
+                            <td class="text-center">{{ u.correo }}</td>
+                            <td class="text-center">{{ u.telefono }}</td>
+                            <td class="text-center">{{ u.rol }}</td>
+                            <td class="text-center"></td>
+                            <td class="text-center">
+                                <button (click)="abrirModalModificar(u)" class="btn btn-success btn-sm btn-block">
+                                <i class="mdi mdi-update mdi-18px">Actualizar</i>
+                            </button>
+                                <input data-toggle="modal" data-target="#modalModificar" #modalModificar type="hidden" name="button" />
+                            </td>
+                            <td class="text-center">
+                                <button (click)="abrirModalDetalle(u)" class="btn btn-success btn-sm btn-block">
+                                <i class="mdi mdi-update mdi-18px">Detalle</i>
+                            </button>
+                                <input data-toggle="modal" data-target="#modalDetalle" #modalDetalle type="hidden" name="button" />
+                            </td>
+
+
+                        </tr>
+                    </table>
+                </div>
+            </table>
+        </div>
+    </div>
+
+</div>
+<!--Modal para añadir-->
+
+<div class="modal fade" style="background-color: rgba(0, 0, 0, 0.5)" append-to-body="true" data-backdrop="false" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalRegistrar" aria-hidden="true" id="modalRegistrar">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Registrar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div *ngIf="formUsuario" class="modal-body">
+                <form [formGroup]="formUsuario" class="row">
+                    <div class="form-group col-md-12">
+                        <label for="username">Username</label>
+                        <input formControlName="username" type="text" class="form-control" id="username" placeholder="Username" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="password">Password</label>
+                        <input formControlName="password" type="text" class="form-control" id="password" placeholder="Password" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="nombre">Nombre</label>
+                        <input formControlName="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="apellido">Apellidos</label>
+                        <input formControlName="apellido" type="text" class="form-control" id="apellido" placeholder="Apellidos" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="dni">DNI</label>
+                        <input formControlName="dni" type="text" class="form-control" id="dni" placeholder="********" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="telefono">Celular</label>
+                        <input formControlName="telefono" type="text" class="form-control" id="telefono" placeholder="Celular" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="correo">Email</label>
+                        <input formControlName="correo" type="text" class="form-control" id="correo" placeholder="Correo" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="direccion">Dirección</label>
+                        <input formControlName="direccion" type="text" class="form-control" id="direccion" placeholder="Dirección" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="rol">Rol Encargado</label>
+                        <input formControlName="rol" type="text" class="form-control" id="rol" placeholder="Rol" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="registrar()" class="btn btn-primary">
+                    Registrar
+                </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal para modificar-->
+
+<div class="modal fade" style="background-color: rgba(0, 0, 0, 0.5)" append-to-body="true" data-backdrop="false" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalModificar" aria-hidden="true" id="modalModificar">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modificar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div *ngIf="formUsuarioModificar" class="modal-body">
+                <form [formGroup]="formUsuarioModificar" class="row">
+                    <div class="form-group col-md-12">
+                        <label for="username">Username</label>
+                        <input formControlName="username" type="text" class="form-control" id="username" placeholder="Username" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="password">Password</label>
+                        <input formControlName="password" type="text" class="form-control" id="password" placeholder="Password" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="nombre">Nombre</label>
+                        <input formControlName="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="apellido">Apellidos</label>
+                        <input formControlName="apellido" type="text" class="form-control" id="apellido" placeholder="Apellidos" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="dni">DNI</label>
+                        <input formControlName="dni" type="text" class="form-control" id="dni" placeholder="********" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="telefono">Celular</label>
+                        <input formControlName="telefono" type="text" class="form-control" id="telefono" placeholder="Celular" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="correo">Email</label>
+                        <input formControlName="correo" type="text" class="form-control" id="correo" placeholder="Correo" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="direccion">Dirección</label>
+                        <input formControlName="direccion" type="text" class="form-control" id="direccion" placeholder="Dirección" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="rol">Rol Encargado</label>
+                        <input formControlName="rol" type="text" class="form-control" id="rol" placeholder="Rol" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="modificar()" class="btn btn-primary">
+                    Modificar
+                </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal para ver detalle-->
+<div class="modal fade" style="background-color: rgba(0, 0, 0, 0.5)" append-to-body="true" data-backdrop="false" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalDetalle" aria-hidden="true" id="modalDetalle">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ver Detalle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div *ngIf="usuarioSeleccionado" class="modal-body">
+                <p>
+                    Trabajador: {{ usuarioSeleccionado?.nombre }} {{usuarioSeleccionado?.apellido }}
+                </p>
+                <p>DNI: {{ usuarioSeleccionado?.dni }}</p>
+                <p>Celular: {{ usuarioSeleccionado?.telefono }}</p>
+                <p>Email: {{ usuarioSeleccionado?.correo }}</p>
+                <p>Direccion: {{ usuarioSeleccionado?.direccion }}</p>
+
+                <p>USERNAME: {{ usuarioSeleccionado?.username}}</p>
+                <p>PASSWORD: {{ usuarioSeleccionado?.password }}</p>
+                <p>ROL: {{ usuarioSeleccionado?.rol }}</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

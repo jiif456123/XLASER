@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <div class="row">
+        <div>
+            <h1 class="text-left">
+                Servicios del Policlinico MEDSALUD
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover border border">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover border border">
+                        <thead style="color: black">
+                            <tr>
+                                <th class="text-center">Especialidad</th>
+                                <th class="text-center">Doctor</th>
+                                <th class="text-center">Descripcion</th>
+                                <th class="text-center" colspan="3">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tr *ngFor="let p of pruebas">
+                            <td class="text-center">{{ p.nespecialidad }}</td>
+                            <td class="text-center">{{ p.ndoctor }}</td>
+                            <td class="text-center">{{ p.descripcion }}</td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-danger btn-sm btn-block" (click)="eliminarEspecialidad(p._id)"> 
+                                    <i class="fa fa-trash fa-lg"></i>  
+                                    <i class="mdi mdi-delete-empty mdi-14px">Eliminar</i>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<!--Modal para ver detalle-->
+<div class="modal fade" style="background-color: rgba(0, 0, 0, 0.5)" append-to-body="true" data-backdrop="false" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalDetalle" aria-hidden="true" id="modalDetalle">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ver Detalle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div *ngIf="pruebaSeleccionado" class="modal-body">
+                <p>
+                    Especialidad Seleccionada: {{ pruebaSeleccionado?.nespecialidad }}
+                </p>
+                <p>Nombre del doctor Encargado: {{ pruebaSeleccionado?.ndoctor }}</p>
+                <p>Descripcion del servicio: {{ pruebaSeleccionado?.descripcion }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                  Cerrar
+              </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,211 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-6 d-flex justify-content-end" style="margin-bottom: 10px">
+            <input type="text" [(ngModel)]="filtro" class="form-control" placeholder="Buscar" />
+        </div>
+        <!--Button zona-->
+        <div class="col-md-2 d-flex justify-content-end" style="margin-bottom: 10px">
+            <button type="button" (click)="estadoCaja(1)" [disabled]="caja?.abierto==1" class="btn btn-success">
+                Abrir
+            </button>
+        </div>
+
+        <div class="col-md-2 d-flex justify-content-end" style="margin-bottom: 10px">
+            <button type="button" (click)="estadoCaja(0)" [disabled]="caja?.abierto==0" class="btn btn-danger">
+                Cerrar
+            </button>
+        </div>
+
+        <div class="col-md-2 d-flex justify-content-end" style="margin-bottom: 10px">
+            <button type="button" [disabled]="caja?.abierto==0" (click)="abrirModal()" class="btn btn-primary">
+                Agregar
+            </button>
+            <input data-toggle="modal" data-target="#modalOperacion" #modalOperacion type="hidden" name="button">
+        </div>
+    </div>
+    <div class="row">
+        <!--Tabla-->
+        <div class="table-responsive">
+            <table style="width: 100%" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Motivo</th>
+                        <th scope="col">Fecha y Hora</th>
+                        <th scope="col">DNI</th>
+                        <th scope="col">Paciente</th>
+                        <th scope="col">Total Precio</th>
+                        <th scope="col">Imprimir</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let mov of movimientos | filter: filtro">
+                        <td>{{ mov.motivo.descripcion }}</td>
+                        <td>{{ mov.fechaHora | date: "medium" }}</td>
+                        <td>{{ mov.paciente.dni }}</td>
+                        <td>{{ mov.paciente.nombre }} {{mov.paciente.apellidoPaterno}}</td>
+                        <td>
+                            {{ mov.precio | number:'1.2-2'}}
+                        </td>
+                        <td class="text-center">
+                            <!-- <button (click)="abrirModalAct(cita)" class="btn btn-success btn-sm btn-block">
+                                <i class="mdi mdi-update mdi-18px">Actualizar</i>
+                            </button>
+                            <input data-toggle="modal" data-target="#modalCitaAct" #modalCitaAct type="hidden"
+                                name="button" /> -->
+
+                            <button (click)="imprimir(mov)" class="btn btn-success btn-sm btn-block">
+                                <i class="mdi mdi-update mdi-18px"></i>Imprimir
+                            </button>
+
+                            <button style="display: none;" #butonImprimir [useExistingCss]="true"
+                                printSectionId="impresion-ticket" ngxPrint class="btn btn-success btn-sm btn-block">
+                                <i class="mdi mdi-update mdi-18px"></i>Imprimir
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<!--Modal para añadir-->
+<div class="modal fade" id="modalOperacion" style="background-color: rgba(0, 0, 0, 0.5);" data-backdrop="false"
+    data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalOperacion" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Registrar movimiento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div *ngIf="formMovimiento" class="modal-body">
+                <form [formGroup]="formMovimiento" class="row">
+
+                    <div class="form-group col-md-6">
+                        <label for="dni">DNI Paciente</label>
+                        <input formControlName="dni" type="text" (input)="buscarPaciente()" class="form-control"
+                            id="dni" placeholder="..." />
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="nombrePaciente">Paciente</label>
+                        <input readonly formControlName="nombrePaciente" type="text" (input)="buscarPaciente()"
+                            class="form-control" id="nombrePaciente" placeholder="..." />
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label for="motivo1">Motivo</label>
+                        <select (ngModelChange)="valorPrecio($event)" formControlName="motivo" class="form-control" id="motivo1">
+                            <option *ngFor="let mot of motivos" [value]="mot._id">
+                                {{ mot.descripcion }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label for="precio1">Precio</label>
+                        <input readonly formControlName="precio" type="number" (input)="generarMontoDevuelto()"
+                            class="form-control" id="precio1" placeholder="00.00" />
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label for="montoRecibido1">Monto recibido</label>
+                        <input formControlName="montoRecibido" type="number" (input)="generarMontoDevuelto()"
+                            class="form-control" id="montoRecibido1" placeholder="00.00" />
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label for="montoDevolver1">Monto por devolver</label>
+                        <input readonly formControlName="montoDevolver" type="number" class="form-control"
+                            id="montoDevolver1" placeholder="00.00" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="registrar()" class="btn btn-primary">Registrar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Zona para imprimir-->
+<div *ngIf="movCajaImprimir" style="display: none;" class="impresion" id="impresion-ticket">
+    <div class="page">
+        <div style="height: 75px; width: auto; overflow: hidden;">
+            <img style="margin-top: -75px;"
+                src="/assets/img/hospital.jpg">
+        </div>
+        <h3 class="text-center font-weight-light"><strong>MedSalud</strong></h3>
+        <h5 class="text-center font-weight-light">Direccion: Avenida Tomás Marsano, 4940
+            Santiago de Surco - Lima</h5>
+        <h5 class="text-center font-weight-light">Ticket de venta electronica</h5>
+        <!-- <h6 class="text-center font-weight-light">Nro. de pedido: <%= pedido._id %>
+        </h6> -->
+        <h6 class="text-center font-weight-light">DNI: {{movCajaImprimir.paciente.dni}}
+        </h6>
+        <h6 class="text-center font-weight-light">Paciente: {{movCajaImprimir.paciente.nombre + ' ' +
+            movCajaImprimir.paciente.apellidoPaterno }}
+        </h6>
+        <!-- <h6 class="text-center font-weight-light">Dirección: <%= pedido.direccion %>
+        </h6> -->
+
+
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-6 col-sm-6 col-md-6 col-xl-6">
+                <table class=" font-weight-light table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Motivo</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>
+                                {{this.movCajaImprimir.motivo.descripcion}}
+                            </td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                {{(this.movCajaImprimir.precio * 0.82).toFixed(2)}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">.</th>
+                            <td colspan="2">I.G.V.</td>
+                            <td>
+                                {{(this.movCajaImprimir.precio * 0.18).toFixed(2)}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">.</th>
+                            <td colspan="2">Total:</td>
+                            <td>
+                                {{(this.movCajaImprimir.precio).toFixed(2)}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <h6 class="text-center font-weight-light">Gracias por su compra🛒</h6>
+        <h6 class="text-center font-weight-light">Cualquier reclamo contactar con: 987654321</h6>
+        <h6 class="text-center font-weight-light">Fecha actual:{{fechaActual | date:'medium'}}
+        </h6>
+
+    </div>
+</div>

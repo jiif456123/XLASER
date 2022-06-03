@@ -1,0 +1,250 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 d-flex justify-content-end" style="margin-bottom: 10px">
+            <input type="text" [(ngModel)]="filtro" class="form-control" placeholder="Buscar" />
+        </div>
+
+        <div class="col-md-4 d-flex justify-content-end" style="margin-bottom: 10px">
+            <button (click)="abrirModal()" type="button" class="btn btn-outline-primary" style="margin-bottom: 10px; float: right">
+            <i class="mdi mdi-pencil mdi-18px">REGISTRAR </i>
+            <input data-toggle="modal" data-target="#modalRegistrar" #modalRegistrar type="hidden" name="button" />
+        </button>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover border border">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover border border">
+                        <thead style="color: black">
+                            <tr>
+                                <th class="text-center">Nombre</th>
+                                <th class="text-center">Apellido paterno</th>
+                                <th class="text-center">Apellido Materno</th>
+                                <th class="text-center">dni</th>
+                                <th class="text-center">Fecha de Nacimiento</th>
+
+                                <th class="text-right" colspan="3">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tr *ngFor="let p of pacientes | filter: filtro">
+                            <td class="text-center">{{ p.nombre }}</td>
+                            <td class="text-center">{{ p.apellidoPaterno }}</td>
+                            <td class="text-center">{{ p.apellidoMaterno }}</td>
+                            <td class="text-center">{{ p.dni }}</td>
+                            <td class="text-center">
+                                {{ p.fechaNaciemineto | date: "dd/MM/yyyy" }}
+                            </td>
+
+
+                            <td class="text-center"></td>
+                            <td class="text-center">
+                                <button (click)="abrirModalModificar(p)" class="btn btn-success btn-sm btn-block">
+                                <i class="mdi mdi-update mdi-18px">Actualizar</i>
+                            </button>
+                                <input data-toggle="modal" data-target="#modalModificar" #modalModificar type="hidden" name="button" />
+                            </td>
+                            <td class="text-center">
+                                <button (click)="abrirModalDetalle(p)" class="btn btn-success btn-sm btn-block">
+                                <i class="mdi mdi-update mdi-18px">Detalle</i>
+                            </button>
+                                <input data-toggle="modal" data-target="#modalDetalle" #modalDetalle type="hidden" name="button" />
+                            </td>
+
+
+                        </tr>
+                    </table>
+                </div>
+            </table>
+        </div>
+    </div>
+
+</div>
+<!--Modal para añadir-->
+
+<div class="modal fade" style="background-color: rgba(0, 0, 0, 0.5)" append-to-body="true" data-backdrop="false" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalRegistrar" aria-hidden="true" id="modalRegistrar">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Registrar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div *ngIf="formPaciente" class="modal-body">
+                <form [formGroup]="formPaciente" class="row">
+                    <div class="form-group col-md-12">
+                        <label for="nombre">Nombre</label>
+                        <input formControlName="nombre" type="text" class="form-control" id="nombre" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="apellidoPaterno">Apeliido Paterno</label>
+                        <input formControlName="apellidoPaterno" type="text" class="form-control" id="apellidoPaterno" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="apellidoMaterno">Apellido Materno</label>
+                        <input formControlName="apellidoMaterno" type="text" class="form-control" id="apellidoMaterno" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="dni">DNI</label>
+                        <input formControlName="dni" type="text" class="form-control" id="dni" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="celular">Celular</label>
+                        <input formControlName="celular" type="text" class="form-control" id="celular" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="email">Email</label>
+                        <input formControlName="email" type="text" class="form-control" id="email" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="fechaNacimiento">Fecha Nacimiento</label>
+                        <input formControlName="fechaNacimiento" type="date" class="form-control" id="fechaNacimiento" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="direccion">Direccion</label>
+                        <input formControlName="direccion" type="text" class="form-control" id="direccion" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="nombreFamiliar">Nombre Familiar</label>
+                        <input formControlName="nombreFamiliar" type="text" class="form-control" id="nombreFamiliar" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="dniFamiliar">DNI Familiar</label>
+                        <input formControlName="dniFamiliar" type="text" class="form-control" id="dniFamiliar" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="parentesco">Parentesco</label>
+                        <input formControlName="parentesco" type="text" class="form-control" id="parentesco" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="celularFamiliar">Celular Familiar</label>
+                        <input formControlName="celularFamiliar" type="text" class="form-control" id="celularFamiliar" placeholder="" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="registrar()" class="btn btn-primary">
+                    Registrar
+                </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal para modificar-->
+
+<div class="modal fade" style="background-color: rgba(0, 0, 0, 0.5)" append-to-body="true" data-backdrop="false" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalModificar" aria-hidden="true" id="modalModificar">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modificar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div *ngIf="formPacienteModificar" class="modal-body">
+                <form [formGroup]="formPacienteModificar" class="row">
+                    <div class="form-group col-md-12">
+                        <label for="nombre">Nombre</label>
+                        <input formControlName="nombre" type="text" class="form-control" id="nombre" placeholder="" />
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="apellidoPaterno">Apeliido Paterno</label>
+                        <input formControlName="apellidoPaterno" type="text" class="form-control" id="apellidoPaterno" placeholder="" />
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="apellidoMaterno">Apellido Materno</label>
+                        <input formControlName="apellidoMaterno" type="text" class="form-control" id="apellidoMaterno" placeholder="" />
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="dni">DNI</label>
+                        <input formControlName="dni" type="text" class="form-control" id="dni" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="celular">Celular</label>
+                        <input formControlName="celular" type="text" class="form-control" id="celular" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="email">Email</label>
+                        <input formControlName="email" type="text" class="form-control" id="email" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="fechaNacimiento">Fecha Nacimiento</label>
+                        <input formControlName="fechaNacimiento" type="date" class="form-control" id="fechaNacimiento" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="direccion">Direccion</label>
+                        <input formControlName="direccion" type="text" class="form-control" id="direccion" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="nombreFamiliar">Nombre Familiar</label>
+                        <input formControlName="nombreFamiliar" type="text" class="form-control" id="nombreFamiliar" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="dniFamiliar">DNI Familiar</label>
+                        <input formControlName="dniFamiliar" type="text" class="form-control" id="dniFamiliar" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="parentesco">Parentesco</label>
+                        <input formControlName="parentesco" type="text" class="form-control" id="parentesco" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="celularFamiliar">Celular Familiar</label>
+                        <input formControlName="celularFamiliar" type="text" class="form-control" id="celularFamiliar" placeholder="" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="modificar()" class="btn btn-primary">
+                    Modificar
+                </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal para ver detalle-->
+<div class="modal fade" style="background-color: rgba(0, 0, 0, 0.5)" append-to-body="true" data-backdrop="false" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalDetalle" aria-hidden="true" id="modalDetalle">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ver Detalle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div *ngIf="pacienteSeleccionado" class="modal-body">
+                <p>
+                    Paciente: {{ pacienteSeleccionado?.nombre }} {{pacienteSeleccionado?.apellidoPaterno }} {{pacienteSeleccionado?.apellidoMaterno }}
+                </p>
+                <p>DNI: {{ pacienteSeleccionado?.dni }}</p>
+                <p>Celular: {{ pacienteSeleccionado?.celular }}</p>
+                <p>Email: {{ pacienteSeleccionado?.email }}</p>
+
+                <p>Fecha nacimiento: {{ pacienteSeleccionado?.fechaNaciemineto | date: "dd/MM/yyyy" }}</p>
+                <p>Direccion: {{ pacienteSeleccionado?.direccion }}</p>
+                <p>Nombre familiar: {{ pacienteSeleccionado?.nombreFamiliar }}</p>
+                <p>DNI Familiar: {{ pacienteSeleccionado?.dniFamiliar }}</p>
+                <p>Parentesco: {{ pacienteSeleccionado?.parentesco }}</p>
+                <p>Celular Familiar: {{ pacienteSeleccionado?.celularFamiliar }}</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

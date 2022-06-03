@@ -1,0 +1,9 @@
+div.impresion {
+    -webkit-print-color-adjust: exact !important;
+    -webkit-filter: opacity(1) !important;
+    filter: opacity(1) !important;
+  }
+
+  div.page {
+    page-break-inside: avoid;
+  }

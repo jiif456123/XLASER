@@ -1,0 +1,56 @@
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-8 d-flex justify-content-end" style="margin-bottom: 10px">
+            <h1 class="text-left">
+                GESTIONAR ESPECIALIDAD MEDICA
+            </h1>
+        </div>
+
+        <div class="col-md-4 d-flex justify-content-end" style="margin-bottom: 10px">
+            <button type="button" class="btn btn-outline-primary" routerLink="/gestionar-especialidad/registrado" style="margin-bottom: 10px; float: right;">
+                <i class="mdi mdi-pencil mdi-18px">REGISTRAR ESPECIALIDAD</i>
+            </button>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover border border">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover border border">
+                        <thead style="color: black;">
+                            <tr>
+                                <th class="text-center">Especialidad</th>
+                                <th class="text-center">Doctor(a)</th>
+                                <th class="text-center">Estado</th>
+                                <th class="text-center">Fecha Inicio</th>
+                                <th class="text-center">Fecha Fin</th>
+                                <th class="text-center" colspan="2">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tr *ngFor="let e of registroEspecialidad">
+                            <td class="text-center"> {{e.descripcion}}</td>
+                            <td class="text-center"> {{e.doctor}}</td>
+                            <th class="text-center"> {{e.estado}} </th>
+                            <td class="text-center"> {{e.fechaHora | date:'dd/MM/yyyy'}}</td>
+                            <td class="text-center"> {{e.fechaFin | date:'dd/MM/yyyy'}}</td>
+                            <td class="text-center">
+                                <button class="btn btn-success btn-sm btn-block" [routerLink]="['/gestionar-especialidad/actualizado',e._id]">
+                                    <i class="fa fa-pencil fa-lg"></i>
+                                    <i class="mdi mdi-update mdi-14px">Editar</i>
+                                </button>
+                            </td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-danger btn-sm btn-block" (click)="eliminarEspecialidad(e._id)"> 
+                                    <i class="fa fa-trash fa-lg"></i>  
+                                    <i class="mdi mdi-delete-empty mdi-14px">Eliminar</i>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </table>
+        </div>
+    </div>
+</div>

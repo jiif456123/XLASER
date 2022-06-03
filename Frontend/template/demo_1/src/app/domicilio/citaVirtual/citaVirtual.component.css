@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    background-color: lightgray;
+    padding: 1rem;
+}
+
+.title {
+    font-weight: 500;
+}
+
+.head-div {
+    margin-bottom: 50px;
+}
+
+.titulo {
+    border-color: #529ABA;
+    color: #529ABA;
+    font-size: 36px;
+    font-weight: inherit;
+    margin-top: 15px;
+}
+
+.button-oculto {
+    display: none;
+}
