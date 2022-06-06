@@ -24,7 +24,6 @@ export class SidebarComponent implements OnInit {
 
   constructor(translate: TranslateService, private userAllService:UserAllService) {
     // this language will be used as a fallback when a translation isn't found in the current language
-    
     translate.setDefaultLang('en');
   }
 
@@ -45,7 +44,6 @@ export class SidebarComponent implements OnInit {
   public permitirVendedor;
   ngOnInit() {
     console.log(this.userAllService.selectedTokenUser.nombre);
-      
     this.getDataOfUser();
     const body = document.querySelector('body');
 
@@ -71,52 +69,46 @@ export class SidebarComponent implements OnInit {
         this.nameSideBar=res.nombre;
         this.rolSideBar=res.rol;
 
-        if(this.rolSideBar=="Medico"||this.rolSideBar=="medico"||this.rolSideBar=="Doctor"||this.rolSideBar=="enfermera"||this.rolSideBar=="Enfermera"||this.rolSideBar=="ADMINISTRADOR"||this.rolSideBar=="administrador"
-        ||this.rolSideBar=="doctor"
-        ){
-            this.permitirHistoria=true;
-            this.permitirReporteGeneral=true;
-            this.permitirDoctor=true;
+        if(this.rolSideBar=="ADMINISTRADOR"||this.rolSideBar=="administrador"||this.rolSideBar=="JEFEINVENTARIO"||this.rolSideBar=="jefeinventario"){
             this.permitirAdmin=true;
             this.permitirJefe=true;
-            this.permitirCLiente=true;
-            this.permitirtecnico=true;
-            this.permitirVendedor=true;
+            this.permitirtecnico=false;
+            this.permitirCLiente=false;
+            this.permitirVendedor=false;
         }else{
-          this.permitirHistoria=false;
-          this.permitirReporteGeneral=false;
-          this.permitirDoctor=false;
+          this.permitirCLiente=false;
           this.permitirAdmin=false;
           this.permitirJefe=false;
-          this.permitirCLiente=false;
           this.permitirtecnico=false;
           this.permitirVendedor=false;
         }
 
-        if(this.rolSideBar=="VENDEDOR"||this.rolSideBar=="vendedor"||this.rolSideBar=="Jefe de Inventario"||this.rolSideBar=="JEFE DE INVENTARIO"){
-          this.permitirJefe=true;
-          this.permitirVendedor=true;
+        if(this.rolSideBar=="VENDEDOR"||this.rolSideBar=="vendedor"||this.rolSideBar=="tecnico"||this.rolSideBar=="TECNICO"){
           this.permitirAdmin=false;
-        }else{
           this.permitirJefe=false;
-          this.permitirVendedor=false;
-        }
-
-        if(this.rolSideBar=="Tecnico"||this.rolSideBar=="TECNICO"||this.rolSideBar=="Cliente"||this.rolSideBar=="CLIENTE"){
-          this.permitirCLiente=true;
           this.permitirtecnico=true;
-          this.permitirAdmin=false;
+          this.permitirCLiente=false;
+          this.permitirVendedor=true;
         }else{
+          this.permitirCLiente=false;
+          this.permitirAdmin=false;
           this.permitirJefe=false;
+          this.permitirtecnico=false;
           this.permitirVendedor=false;
         }
-        
-        if(this.rolSideBar=="paciente"||this.rolSideBar=="Paciente"||this.rolSideBar=="Medico"||this.rolSideBar=="medico"||this.rolSideBar=="Doctor"||this.rolSideBar=="doctor"){
-          this.permitirCita=true;
-          
 
+        if(this.rolSideBar=="Cliente"||this.rolSideBar=="CLIENTE"){
+          this.permitirCLiente=true;
+          this.permitirAdmin=false;
+          this.permitirJefe=false;
+          this.permitirtecnico=false;
+          this.permitirVendedor=false;
         }else{
-          this.permitirCita=false;
+          this.permitirCLiente=false;
+          this.permitirAdmin=false;
+          this.permitirJefe=false;
+          this.permitirtecnico=false;
+          this.permitirVendedor=false;
         }
       },
       err => console.error(err)

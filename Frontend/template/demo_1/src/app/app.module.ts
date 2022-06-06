@@ -46,6 +46,13 @@ import { GestionarServiciosComponent } from './citas/gestionar-servicios/gestion
 
 import { GestionarTrabajadorComponent } from './gestionar-trabajador/gestionar-trabajador.component';
 
+import { VisualizarRTecnicoComponent } from './visualizarregistrotecnicos/visualizarregistrotecnicos.component';
+
+import { VisualizarProductoComponent } from './visualizarproducto/visualizarproducto.component';
+
+import { VisualizarEAsignadoComponent } from './VisualizarEquipoAsignado/visualizarequipo.component';
+
+import { RegistroTecnicoComponent } from './Registro Tecnico/registrotecnico.component';
 // AoT requires an exported function for factories
 
 //citaVirtual
@@ -95,7 +102,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     CambiarContraComponent,
     GestionarServiciosComponent,
     GestionarTrabajadorComponent,
-
+    VisualizarRTecnicoComponent,
+    VisualizarProductoComponent,
+    VisualizarEAsignadoComponent,
+    RegistroTecnicoComponent,
     GestionarRecetaMedicaComponent,
     RegGestionarRecetaMedicaComponent,
     DetalleGestionarRecetaMedicaComponent,

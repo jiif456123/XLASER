@@ -25,6 +25,13 @@ import { EspecialidadActualizadoComponent } from './GestEspecialidad/actualizar-
 import { GestionarCajaComponent } from './gestionar-caja/gestionar-caja.component';
 import { TicketCajaComponent } from './gestionar-caja/ticket-caja/ticket-caja.component';
 import { GestionarTrabajadorComponent } from './gestionar-trabajador/gestionar-trabajador.component';
+import { VisualizarRTecnicoComponent } from './visualizarregistrotecnicos/visualizarregistrotecnicos.component';
+
+import { VisualizarProductoComponent } from './visualizarproducto/visualizarproducto.component';
+
+import { VisualizarEAsignadoComponent } from './VisualizarEquipoAsignado/visualizarequipo.component';
+
+import { RegistroTecnicoComponent } from './Registro Tecnico/registrotecnico.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -63,10 +70,18 @@ const routes: Routes = [
     path: 'gestionar-caja', component: GestionarCajaComponent, canActivate: [AuthGuard], pathMatch: 'full' },
   {
     path: 'gestionar-trabajador', component: GestionarTrabajadorComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'visualizar-registro-tecnico', component: VisualizarRTecnicoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'visualizar-producto', component: VisualizarProductoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'visualizar-equipo-asignado', component: VisualizarEAsignadoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'registro-tecnico', component: RegistroTecnicoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
 
   {path: 'login', component: LoginMComponent , pathMatch: 'full'},
   {path: 'welcome-page', component: WelcomePage, pathMatch: 'full'},
-  {path: "gestionar-servicios", component:  GestionarServiciosComponent , canActivate: [AuthGuard], pathMatch: 'full' },
+  {path: 'gestionar-servicios', component:  GestionarServiciosComponent , canActivate: [AuthGuard], pathMatch: 'full' },
   { path: 'presentarhome', loadChildren: ()=> import('./Presentar Home/presentar-home.module').then(m => m.PresentarHomeModule)},
   { path: 'laboratorio', loadChildren: ()=> import('./Laboratorio/laboratorio.module').then(m => m.LaboratorioModule)},
   { path: 'gestionar-historia', loadChildren: ()=> import('./Gestionar-Historica-Clinica/gestionar-historia.module').then(m => m.gestionarhistoriaModule)},
