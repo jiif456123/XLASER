@@ -14,6 +14,7 @@ const uploadController = require('../../citas/servicios/upload');
 const especialController = require('../../citas/especial/especial.controller');
 const consultarhorario = require('../consultarHorario/horario.Controller');
 const usuarioController = require('../../citas/usuario/usuario.controller');
+const reporteController = require('../../citas/ReporteTecnico/reporteT.controller');
 
 jwt = require('jsonwebtoken');
 //const express = require('express');
@@ -33,6 +34,7 @@ router.use('/servicios', serviciosController);
 router.use('/imagen', uploadController);
 router.use('/especial', especialController);
 router.use('/consultarhorario', consultarhorario);
+router.use('/reportet', reporteController);
 
 function verifyToken(req, res, next) {
 

@@ -218,6 +218,20 @@ var usuario = new Schema({
     versionKey: false
 });
 var modelUsuario = mongoose.model('Usuario', usuario);
+/* Reporte Tecnico */
+var reporteT = new Schema({
+
+    motivo: { type: String },
+    codigomaquina: { type: String },
+    descripcion: { type: String },
+    estadomaquina: { type: String },
+    nombretecnico: { type: String },
+    fecha: { type: Date },
+}, {
+    versionKey: false
+});
+
+var modelReporteT = mongoose.model('ReporteT', reporteT);
 
 module.exports = {
     modelPaciente: modelPaciente,
@@ -234,4 +248,5 @@ module.exports = {
     modelserviciospo: modelserviciospo,
     modelPrueba: modelPrueba,
     modelUsuario: modelUsuario,
+    modelReporteT: modelReporteT,
 }
