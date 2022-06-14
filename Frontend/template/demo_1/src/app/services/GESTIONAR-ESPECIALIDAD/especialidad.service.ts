@@ -29,8 +29,8 @@ import { Especialidad } from '../../models/especialiadad.model';
     return this.http.post<Especialidad[]>(this.url_API, especialidad);
   }
 
-  actualizarEspecialidad(Especialidad: Especialidad) {
-    return this.http.put(this.url_API + `/${Especialidad._id}`, Especialidad);
+  actualizarEspecialidad(especialidad: Especialidad) {
+    return this.http.put(this.url_API + `/${especialidad._id}`, especialidad);
   }
   listarEspacialidadId(id: string){
     return this.http.get<any>(`${this.url_API}/${id}`);

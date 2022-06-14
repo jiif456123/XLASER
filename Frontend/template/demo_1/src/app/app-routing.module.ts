@@ -32,6 +32,18 @@ import { VisualizarProductoComponent } from './visualizarproducto/visualizarprod
 import { VisualizarEAsignadoComponent } from './VisualizarEquipoAsignado/visualizarequipo.component';
 
 import { RegistroTecnicoComponent } from './Registro Tecnico/registrotecnico.component';
+import { RegistrarRegistroTecnicoComponent } from './Registro Tecnico/registrar-registro-tecnico/registrar-registro-tecnico.component';
+import { ActualizarRegistroTecnicoComponent } from './Registro Tecnico/actualizar-registro-tecnico/actualizar-registro.component';
+import { AsignarEquipoComponent } from './AsignarEquipo/asignar-equipo.component';
+import { GestionarContratoComponent } from './GestionarContrato/gestionar-contrato.component';
+import { GestionarEstadoEquipoComponent } from './GestionarEstadoEquipo/gestionar-estado-equipo.component';
+import { RealizarCotizacionComponent } from './RealizarCotizacion/realizar-cotizacion.component';
+import { ReporteSeguimientoComponent } from './RealizarReporteSeguimiento/realizar-reporte-seguimiento.component';
+import { RegistrarClienteComponent } from './RegistrarCliente/registrar-cliente.component';
+import { VisualizarCotizacionComponent } from './VisualizarCotizacion/visualizar-cotizacion.component';
+import { VisualizarEquipoComponent } from './VisualizarEquipo/visualizar-equipo.component';
+import { RegistrarEquipoComponent } from './RegistrarEquipo/registrar-equipo.component';
+import { VisualizarReporteSeguimientoComponent } from './VisualizarReporteSeguimiento/visualizar-reporte-seguimiento.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -47,7 +59,6 @@ const routes: Routes = [
   {path: "gestionar-paciente", component:  GestionarPacienteComponent , canActivate: [AuthGuard], pathMatch: 'full' },
   {path: "gestionar-historia", component:  GestionarHistoriaComponent , canActivate: [AuthGuard], pathMatch: 'full' },
   {path: "cambiarc", component:  CambiarContraComponent , canActivate: [AuthGuard], pathMatch: 'full' },
-    
   {
     path: "gestionar-receta-medica", component: GestionarRecetaMedicaComponent,  canActivate: [AuthGuard], pathMatch: 'full' },
   {
@@ -78,7 +89,30 @@ const routes: Routes = [
    path: 'visualizar-equipo-asignado', component: VisualizarEAsignadoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
   {
    path: 'registro-tecnico', component: RegistroTecnicoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
-
+  {
+   path: 'registro-tecnico/registrado', component: RegistrarRegistroTecnicoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'registro-tecnico/actualizado/:id', component: ActualizarRegistroTecnicoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'asignar-equipo', component: AsignarEquipoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'gestionar-contrato', component: GestionarContratoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'gestionar-estado-equipo', component: GestionarEstadoEquipoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'realizar-cotizacion', component: RealizarCotizacionComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'reporte-seguimiento', component: ReporteSeguimientoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'registrar-cliente', component: RegistrarClienteComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'visualizar-cotizacion', component: VisualizarCotizacionComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'visualizar-equipo', component: VisualizarEquipoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'registrar-equipo', component: RegistrarEquipoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'visualizar-reporte-seguimiento', component: VisualizarReporteSeguimientoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
   {path: 'login', component: LoginMComponent , pathMatch: 'full'},
   {path: 'welcome-page', component: WelcomePage, pathMatch: 'full'},
   {path: 'gestionar-servicios', component:  GestionarServiciosComponent , canActivate: [AuthGuard], pathMatch: 'full' },

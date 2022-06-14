@@ -69,46 +69,34 @@ export class SidebarComponent implements OnInit {
         this.nameSideBar=res.nombre;
         this.rolSideBar=res.rol;
 
-        if(this.rolSideBar=="ADMINISTRADOR"||this.rolSideBar=="administrador"||this.rolSideBar=="JEFEINVENTARIO"||this.rolSideBar=="jefeinventario"){
+        if(this.rolSideBar=="ADMINISTRADOR"||this.rolSideBar=="administrador"){
             this.permitirAdmin=true;
-            this.permitirJefe=true;
-            this.permitirtecnico=false;
-            this.permitirCLiente=false;
-            this.permitirVendedor=false;
         }else{
-          this.permitirCLiente=false;
           this.permitirAdmin=false;
-          this.permitirJefe=false;
-          this.permitirtecnico=false;
-          this.permitirVendedor=false;
         }
-
-        if(this.rolSideBar=="VENDEDOR"||this.rolSideBar=="vendedor"||this.rolSideBar=="tecnico"||this.rolSideBar=="TECNICO"){
-          this.permitirAdmin=false;
-          this.permitirJefe=false;
-          this.permitirtecnico=true;
-          this.permitirCLiente=false;
+        
+        if(this.rolSideBar=="VENDEDOR"||this.rolSideBar=="vendedor"){
           this.permitirVendedor=true;
         }else{
-          this.permitirCLiente=false;
-          this.permitirAdmin=false;
-          this.permitirJefe=false;
-          this.permitirtecnico=false;
           this.permitirVendedor=false;
         }
-
-        if(this.rolSideBar=="Cliente"||this.rolSideBar=="CLIENTE"){
-          this.permitirCLiente=true;
-          this.permitirAdmin=false;
+        
+        if(this.rolSideBar=="JEFEINVENTARIO"||this.rolSideBar=="jefeinventario"){
+          this.permitirJefe=true;
+        }else{
           this.permitirJefe=false;
+        }
+        
+        if(this.rolSideBar=="TECNICO"||this.rolSideBar=="tecnico"){
+          this.permitirtecnico=true;
+        }else{
           this.permitirtecnico=false;
-          this.permitirVendedor=false;
+        }
+        
+        if(this.rolSideBar=="CLIENTE"||this.rolSideBar=="Cliente"){
+          this.permitirCLiente=true;
         }else{
           this.permitirCLiente=false;
-          this.permitirAdmin=false;
-          this.permitirJefe=false;
-          this.permitirtecnico=false;
-          this.permitirVendedor=false;
         }
       },
       err => console.error(err)

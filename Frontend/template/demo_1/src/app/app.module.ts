@@ -53,6 +53,16 @@ import { VisualizarProductoComponent } from './visualizarproducto/visualizarprod
 import { VisualizarEAsignadoComponent } from './VisualizarEquipoAsignado/visualizarequipo.component';
 
 import { RegistroTecnicoComponent } from './Registro Tecnico/registrotecnico.component';
+
+import { AsignarEquipoComponent } from './AsignarEquipo/asignar-equipo.component';
+import { GestionarContratoComponent } from './GestionarContrato/gestionar-contrato.component';
+import { GestionarEstadoEquipoComponent } from './GestionarEstadoEquipo/gestionar-estado-equipo.component';
+import { RealizarCotizacionComponent } from './RealizarCotizacion/realizar-cotizacion.component';
+import { ReporteSeguimientoComponent } from './RealizarReporteSeguimiento/realizar-reporte-seguimiento.component';
+import { RegistrarClienteComponent } from './RegistrarCliente/registrar-cliente.component';
+import { VisualizarCotizacionComponent } from './VisualizarCotizacion/visualizar-cotizacion.component';
+import { VisualizarEquipoComponent } from './VisualizarEquipo/visualizar-equipo.component';
+import { VisualizarReporteSeguimientoComponent } from './VisualizarReporteSeguimiento/visualizar-reporte-seguimiento.component';
 // AoT requires an exported function for factories
 
 //citaVirtual
@@ -71,6 +81,9 @@ import { EspecialidadRegistradoComponent } from './GestEspecialidad/reg-especial
 import { EspecialidadActualizadoComponent } from './GestEspecialidad/actualizar-especialidad/actu-espe.component';
 import { GestionarCajaComponent } from './gestionar-caja/gestionar-caja.component';
 import { TicketCajaComponent } from './gestionar-caja/ticket-caja/ticket-caja.component';
+import { RegistrarRegistroTecnicoComponent } from './Registro Tecnico/registrar-registro-tecnico/registrar-registro-tecnico.component';
+import { ActualizarRegistroTecnicoComponent } from './Registro Tecnico/actualizar-registro-tecnico/actualizar-registro.component'; 
+import { RegistrarEquipoComponent } from './RegistrarEquipo/registrar-equipo.component';
 
 const config: SocketIoConfig = {url: 'http://localhost:3000', options: {withCredentials: '*'}};
 
@@ -116,6 +129,18 @@ export function HttpLoaderFactory(http: HttpClient) {
     EspecialidadActualizadoComponent,
     GestionarCajaComponent,
     TicketCajaComponent,
+    RegistrarRegistroTecnicoComponent,
+    ActualizarRegistroTecnicoComponent,
+    AsignarEquipoComponent,
+    GestionarContratoComponent,
+    GestionarEstadoEquipoComponent,
+    RealizarCotizacionComponent,
+    ReporteSeguimientoComponent,
+    RegistrarClienteComponent,
+    VisualizarCotizacionComponent,
+    VisualizarEquipoComponent,
+    RegistrarEquipoComponent,
+    VisualizarReporteSeguimientoComponent,
   ],
   imports: [
     BrowserModule,
