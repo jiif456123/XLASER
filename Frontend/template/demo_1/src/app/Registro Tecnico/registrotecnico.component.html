@@ -27,7 +27,6 @@
                                 <th class="text-center">EstadoMaquina</th>
                                 <th class="text-center">Nombre Tecnico</th>
                                 <th class="text-center">Fecha</th>
-                                <th class="text-center" colspan="2">Opciones</th>
                             </tr>
                         </thead>
                         <tr *ngFor="let e of registroReporteT">
@@ -37,18 +36,6 @@
                             <th class="text-center"> {{e.estadomaquina}} </th>
                             <th class="text-center"> {{e.nombretecnico}} </th>
                             <td class="text-center"> {{e.fecha | date:'dd/MM/yyyy'}}</td>
-                            <td class="text-center">
-                                <button class="btn btn-success btn-sm btn-block" [routerLink]="['/registro-tecnico/actualizado',e._id]">
-                                    <i class="fa fa-pencil fa-lg"></i>
-                                    <i class="mdi mdi-update mdi-14px">Editar</i>
-                                </button>
-                            </td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-danger btn-sm btn-block" (click)="eliminarEspecialidad(e._id)"> 
-                                    <i class="fa fa-trash fa-lg"></i>  
-                                    <i class="mdi mdi-delete-empty mdi-14px">Eliminar</i>
-                                </button>
-                            </td>
                         </tr>
                     </table>
                 </div>
