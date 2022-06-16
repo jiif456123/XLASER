@@ -5,7 +5,7 @@ export class User {
   apellidoPaterno: string;
   apellidoMaterno: string;
   dni: string;
-  celular: Number;
+  celular: number;
   email: string;
   fechaNacimiento: Date;
   direccion: string;

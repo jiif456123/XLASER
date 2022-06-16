@@ -40,8 +40,6 @@ import { TokenInterceptorService } from './citas/services/token-interceptor.serv
 
 import { GestionarPacienteComponent } from './citas/gestionar-paciente/gestionar-paciente.component';
 
-import { CambiarContraComponent } from './citas/cambiar-password/cambiarpassword.component';
-
 import { GestionarServiciosComponent } from './citas/gestionar-servicios/gestionar-servicios.component';
 
 import { GestionarTrabajadorComponent } from './gestionar-trabajador/gestionar-trabajador.component';
@@ -63,6 +61,8 @@ import { RegistrarClienteComponent } from './RegistrarCliente/registrar-cliente.
 import { VisualizarCotizacionComponent } from './VisualizarCotizacion/visualizar-cotizacion.component';
 import { VisualizarEquipoComponent } from './VisualizarEquipo/visualizar-equipo.component';
 import { VisualizarReporteSeguimientoComponent } from './VisualizarReporteSeguimiento/visualizar-reporte-seguimiento.component';
+import { CambiarContraComponent } from './citas/cambiar-password/cambiarpassword.component';
+
 // AoT requires an exported function for factories
 
 //citaVirtual
@@ -84,7 +84,7 @@ import { TicketCajaComponent } from './gestionar-caja/ticket-caja/ticket-caja.co
 import { RegistrarRegistroTecnicoComponent } from './Registro Tecnico/registrar-registro-tecnico/registrar-registro-tecnico.component';
 import { ActualizarRegistroTecnicoComponent } from './Registro Tecnico/actualizar-registro-tecnico/actualizar-registro.component'; 
 import { RegistrarEquipoComponent } from './RegistrarEquipo/registrar-equipo.component';
-
+import { RegistrarTrabajadorComponent } from './citas/cambiar-password/registrar-trabajador/registrar-trabajador.component';
 const config: SocketIoConfig = {url: 'http://localhost:3000', options: {withCredentials: '*'}};
 
 //import { BrowserModule  } from '@angular/platform-browser';
@@ -141,6 +141,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     VisualizarEquipoComponent,
     RegistrarEquipoComponent,
     VisualizarReporteSeguimientoComponent,
+    RegistrarTrabajadorComponent,
   ],
   imports: [
     BrowserModule,

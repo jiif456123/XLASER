@@ -44,6 +44,7 @@ import { VisualizarCotizacionComponent } from './VisualizarCotizacion/visualizar
 import { VisualizarEquipoComponent } from './VisualizarEquipo/visualizar-equipo.component';
 import { RegistrarEquipoComponent } from './RegistrarEquipo/registrar-equipo.component';
 import { VisualizarReporteSeguimientoComponent } from './VisualizarReporteSeguimiento/visualizar-reporte-seguimiento.component';
+import { RegistrarTrabajadorComponent } from './citas/cambiar-password/registrar-trabajador/registrar-trabajador.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -58,7 +59,6 @@ const routes: Routes = [
   {path: "gestionar-citas", component:  GestionarCitasComponent , canActivate: [AuthGuard], pathMatch: 'full' },
   {path: "gestionar-paciente", component:  GestionarPacienteComponent , canActivate: [AuthGuard], pathMatch: 'full' },
   {path: "gestionar-historia", component:  GestionarHistoriaComponent , canActivate: [AuthGuard], pathMatch: 'full' },
-  {path: "cambiarc", component:  CambiarContraComponent , canActivate: [AuthGuard], pathMatch: 'full' },
   {
     path: "gestionar-receta-medica", component: GestionarRecetaMedicaComponent,  canActivate: [AuthGuard], pathMatch: 'full' },
   {
@@ -113,6 +113,9 @@ const routes: Routes = [
    path: 'registrar-equipo', component: RegistrarEquipoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
   {
    path: 'visualizar-reporte-seguimiento', component: VisualizarReporteSeguimientoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'registrar-empleado/registrado', component: RegistrarTrabajadorComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+   {path: 'cambiarc', component:  CambiarContraComponent , canActivate: [AuthGuard], pathMatch: 'full' },   
   {path: 'login', component: LoginMComponent , pathMatch: 'full'},
   {path: 'welcome-page', component: WelcomePage, pathMatch: 'full'},
   {path: 'gestionar-servicios', component:  GestionarServiciosComponent , canActivate: [AuthGuard], pathMatch: 'full' },

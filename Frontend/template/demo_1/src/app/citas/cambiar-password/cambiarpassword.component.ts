@@ -5,6 +5,8 @@ import { UserService } from '../services/usuario.service';
 import { FilterPipe } from 'ngx-filter-pipe';
 import Swal from 'sweetalert2';
 import { User } from '../models/user.model';
+import { switchMap } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cambiarpassword',
@@ -23,11 +25,17 @@ export class CambiarContraComponent implements OnInit {
   filtro = "";
   contradmin ="admin123";
 
+  id:string;
+
+  registrarUser: User;
+
   users: User[] = []
   userSeleccionada: User;
   public user: User = new User();
   constructor(
     private userService: UserService,
+    private ActivatedRoute: ActivatedRoute,
+    private router: Router,
     private pipe: FilterPipe,
     private fb: FormBuilder,
     private datePipe: DatePipe
@@ -168,4 +176,28 @@ export class CambiarContraComponent implements OnInit {
         this.tipo = "password";
     }
 }
+
+eliminarTrabajador( _id: string ){
+  Swal.fire({
+   text: '¿Está seguro que desea eliminar a este trabajador?',
+   icon: 'warning',
+   showCancelButton: true,
+   cancelButtonText: 'Cancelar',
+   confirmButtonColor:'Aceptar'
+  }).then((willDelete)=>{
+    if(willDelete.isConfirmed){
+      this.userService.eliminar(_id).pipe(switchMap(()=>{
+        return this.userService.listar();
+      }))
+      .subscribe(data =>{
+        this.registrarUser=data.data;
+        Swal.fire('El empleado se eliminó correctamente');
+      });
+    } else{
+      Swal.fire('El empleado no ha sido eliminado'),
+      {icon: 'info'}
+    }
+  })
+  this.router.navigate(['/cambiarc']);
+};
 }
