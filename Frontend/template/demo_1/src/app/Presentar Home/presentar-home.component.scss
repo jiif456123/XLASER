@@ -375,3 +375,79 @@ ul li figcaption {
 img {
     width: 100%;
 }
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.container .card {
+    width: 330px;
+    height: 430px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+}
+
+.container .card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+.container .card img {
+    width: 250px;
+    height: 200px;
+}
+
+.container .card h4 {
+    font-weight: 600;
+}
+
+.container .card p {
+    padding: 0 1rem;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.container .card a {
+    font-weight: 500;
+    text-decoration: none;
+    color: #3498db;
+}
+
+.product-stripe {
+    overflow-x: scroll;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.stripe-container {
+    display: flex;
+}
+
+.stripe-container .card {
+    width: 300px;
+    flex-shrink: 0;
+    margin-right: 1rem;
+}
+
+.responsive-iframe {
+    position: relative;
+    padding-top: 56.25%;
+}
+
+.responsive-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
