@@ -62,7 +62,9 @@ import { VisualizarCotizacionComponent } from './VisualizarCotizacion/visualizar
 import { VisualizarEquipoComponent } from './VisualizarEquipo/visualizar-equipo.component';
 import { VisualizarReporteSeguimientoComponent } from './VisualizarReporteSeguimiento/visualizar-reporte-seguimiento.component';
 import { CambiarContraComponent } from './citas/cambiar-password/cambiarpassword.component';
-
+import { AsignarClienteComponent } from './AsignarEquipo/AsignarCliente/asignar-cliente.component';
+import { AsignarTecnicoComponent } from './AsignarEquipo/AsignarTecnico/asignar-tecnico.component';
+import { DetalleEquipoComponent } from './AsignarEquipo/VerDetalle/detalle-equipo.component';
 // AoT requires an exported function for factories
 
 //citaVirtual
@@ -142,6 +144,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     RegistrarEquipoComponent,
     VisualizarReporteSeguimientoComponent,
     RegistrarTrabajadorComponent,
+    AsignarClienteComponent,
+    AsignarTecnicoComponent,
+    DetalleEquipoComponent,
   ],
   imports: [
     BrowserModule,

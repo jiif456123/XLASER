@@ -233,6 +233,30 @@ var reporteT = new Schema({
 
 var modelReporteT = mongoose.model('ReporteT', reporteT);
 
+var equipoR = new Schema({
+
+    codigo: { type: String },
+    cliente: { type: String },
+    tecnico: { type: String },
+    tipo: { type: String },
+    marca: { type: String },
+    descripcion: { type: String },
+    funcionalidad: { type: String },
+    /*Multifuncional o Monocromatica*/
+    color: { type: String },
+    /*Monocromática o Policromática*/
+    wifi: { type: String },
+    impresion: { type: String },
+    /*Láser o Inkjet*/
+    fechaI: { type: String },
+    estado: { type: String },
+
+}, {
+    versionKey: false
+});
+
+var modelEquipoR = mongoose.model('EquipoR', equipoR);
+
 module.exports = {
     modelPaciente: modelPaciente,
     modelEspecialidad: modelEspecialidad,
@@ -249,4 +273,5 @@ module.exports = {
     modelPrueba: modelPrueba,
     modelUsuario: modelUsuario,
     modelReporteT: modelReporteT,
+    modelEquipoR: modelEquipoR,
 }

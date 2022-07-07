@@ -18,7 +18,7 @@ export class RegistroTecnicoComponent implements OnInit {
   registroReporteT: ReporteT[]=[];
 
   constructor(
-    private ActivatedRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
     private reporteTService: ReporteTService,
   ) { }

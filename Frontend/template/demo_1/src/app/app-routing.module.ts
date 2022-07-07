@@ -45,6 +45,9 @@ import { VisualizarEquipoComponent } from './VisualizarEquipo/visualizar-equipo.
 import { RegistrarEquipoComponent } from './RegistrarEquipo/registrar-equipo.component';
 import { VisualizarReporteSeguimientoComponent } from './VisualizarReporteSeguimiento/visualizar-reporte-seguimiento.component';
 import { RegistrarTrabajadorComponent } from './citas/cambiar-password/registrar-trabajador/registrar-trabajador.component';
+import { AsignarClienteComponent } from './AsignarEquipo/AsignarCliente/asignar-cliente.component';
+import { AsignarTecnicoComponent } from './AsignarEquipo/AsignarTecnico/asignar-tecnico.component';
+import { DetalleEquipoComponent } from './AsignarEquipo/VerDetalle/detalle-equipo.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -115,7 +118,13 @@ const routes: Routes = [
    path: 'visualizar-reporte-seguimiento', component: VisualizarReporteSeguimientoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
   {
    path: 'registrar-empleado/registrado', component: RegistrarTrabajadorComponent, canActivate: [AuthGuard], pathMatch: 'full' },
-   {path: 'cambiarc', component:  CambiarContraComponent , canActivate: [AuthGuard], pathMatch: 'full' },   
+  {
+   path: 'asignar-equipo-cliente/actualizado/:id', component: AsignarClienteComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'asignar-equipo-tecnico/actualizado/:id', component: AsignarTecnicoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {
+   path: 'detalle-equipo/visualizacion/:id', component: DetalleEquipoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  {path: 'cambiarc', component:  CambiarContraComponent , canActivate: [AuthGuard], pathMatch: 'full' },   
   {path: 'login', component: LoginMComponent , pathMatch: 'full'},
   {path: 'welcome-page', component: WelcomePage, pathMatch: 'full'},
   {path: 'gestionar-servicios', component:  GestionarServiciosComponent , canActivate: [AuthGuard], pathMatch: 'full' },
