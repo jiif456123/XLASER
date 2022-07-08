@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<h1>Detalle del Producto</h1>
+<div class="card mb-3" style="max-width: 1500px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="../../assets/images/ImagenesImpresora/IMP1.jpg" class="img-fluid rounded-start" alt="IMP1">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">imageRUNNER ADVANCE DX 8786i</h5>
+                <dl class="row">
+                    <dt class="display-3">Precio 1200</dt>
+                    <form [formGroup]="formcantidad">
+                        <div class="form-row">
+                            <div class="form-group col-lg-16 col-md-16 col-xs-16">
+                                <label for="cantidad">Cantidad</label>
+                                <select id="cantidad" class="form-control" style="color:#000000" formControlName="cantidad">
+            <option *ngFor="let sum of this.suma" [value]="sum.sum">{{sum.sum}}</option>
+              </select>
+                                <div class="pt-1 text-danger" *ngIf="invalid('cantidad') || cantidadAux">
+                                    <span class="form-control-feedback">
+              <i class="mdi mdi-close-circle"></i> Este campo es <strong>requerido.</strong>
+                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <dt class="col-sm-3">VELOCIDAD A B/N</dt>
+                    <dd class="col-sm-9">86 Paginas por minuto</dd>
+
+                    <dt class="col-sm-3">RESOLUCION</dt>
+                    <dd class="col-sm-9">1200 x 1200 dpi</dd>
+
+                    <dt class="col-sm-3">CAPACIDAD DE PAPEL</dt>
+                    <dd class="col-sm-9">Dos bandejas de papel de 570 HojasDos bandejas de papel de 1560 Hojas</dd>
+
+                    <dt class="col-sm-3">PRIMERA COPIA EN B/N</dt>
+                    <dd class="col-sm-9">2.7 Segundos</dd>
+
+                    <dt class="col-sm-3">VOLUMEN</dt>
+                    <dd class="col-sm-9">Copias por mes</dd>
+
+                    <dt class="col-sm-3">IMPRESIONES POR TONER B/W</dt>
+                    <dd class="col-sm-9">70,000 Impresiones</dd>
+
+                    <dt class="col-sm-3">TIPO DE COPIADORA</dt>
+                    <dd class="col-sm-9">Fotocopiadora de Oficina, Prensa Digital</dd>
+
+                    <dt class="col-sm-3">PESO</dt>
+                    <dd class="col-sm-9">487.2 lbs</dd>
+
+                    <dt class="col-sm-3">TAMAÑO DE SALIDA</dt>
+                    <dd class="col-sm-9">4 x 5-7/8 to 4</dd>
+
+                    <dt class="col-sm-3">DIMENSIONESS (H X W X D)</dt>
+                    <dd class="col-sm-9">46-5/8" x 26-3/8" x 30-3/8"</dd>
+
+                    <dt class="col-sm-3">ENREGÍA</dt>
+                    <dd class="col-sm-9">110-127 Voltios, 16 Amps</dd>
+
+                    <dt class="col-sm-3">VELOCIDAD</dt>
+                    <dd class="col-sm-9">75 + PPM</dd>
+
+                    <dt class="col-sm-3">PROPIEDADES</dt>
+                    <dd class="col-sm-9">Fotocopiadora-Impresora-Escaner-Fax</dd>
+
+                    <dt class="col-sm-3">PESO DEL PAPEL</dt>
+                    <dd class="col-sm-9">14-lb bond a 80-lb cover</dd>
+
+
+                    <form [formGroup]="formcantidad">
+                        <td class="text-center">
+                            <button [disabled]="formcantidad.invalid" type="submit" class="btn btn-success" (click)="operar()" routerLink='/detalle-producto'>
+            <i class="mdi mdi-calculator mdi-18px" >Calcular</i>
+        </button>
+                        </td>
+                    </form>
+                    <tr>
+                        <td>El precio es:</td>
+                        <td>
+                            S/ {{ SUM1 | currency:' '}}
+                        </td>
+                    </tr>
+                </dl>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button type="button" class="btn btn-primary" routerLink='/welcome-page'>Regresar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

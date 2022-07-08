@@ -1,0 +1,148 @@
+<div>
+    <div class="col-lg-15 col-md-15 col-xs-15">
+        <div class="card border">
+            <div class="card-body">
+                <div class="card-body">
+                    <form [formGroup]="formUser">
+                        <div class="text-center" style="margin-bottom: 15px">
+                            <h1>Registrar Usuario</h1>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-12 col-md-12 col-xs-12">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" id="nombre" class="form-control" placeholder="Nombre" formControlName="nombre">
+                                <div class="pt-1 text-danger" *ngIf="invalid('nombre') || nombreAux">
+                                    <span class="form-control-feedback">
+                                            <i class="mdi mdi-close-circle"></i> Este campo es <strong>requerido.</strong>
+                                           </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-12 col-md-12 col-xs-12">
+                                <label for="apellidoPaterno">Apellido Paterno</label>
+                                <input type="text" id="apellidoPaterno" class="form-control" placeholder="Apellido Paterno" formControlName="apellidoPaterno">
+                                <div class="pt-1 text-danger" *ngIf="invalid('apellidoPaterno') || apellidoPaternoAux">
+                                    <span class="form-control-feedback">
+                                            <i class="mdi mdi-close-circle"></i> Este campo es <strong>requerido.</strong>
+                                           </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-12 col-md-12 col-xs-12">
+                                <label for="apellidoMaterno">Apellido Materno</label>
+                                <input type="text" id="apellidoMaterno" class="form-control" placeholder="Apellido Materno" formControlName="apellidoMaterno">
+                                <div class="pt-1 text-danger" *ngIf="invalid('apellidoMaterno') || apellidoMaternoAux">
+                                    <span class="form-control-feedback">
+                                            <i class="mdi mdi-close-circle"></i> Este campo es <strong>requerido.</strong>
+                                           </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-12 col-md-12 col-xs-12">
+                                <label for="dni">DNI</label>
+                                <input type="text" id="dni" class="form-control" placeholder="DNI" formControlName="dni">
+                                <div class="pt-1 text-danger" *ngIf="invalid('dni') || dniAux">
+                                    <span class="form-control-feedback">
+                                            <i class="mdi mdi-close-circle"></i> Este campo es <strong>requerido.</strong>
+                                           </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-12 col-md-12 col-xs-12">
+                                <label for="celular">Celular</label>
+                                <input type="text" id="celular" class="form-control" placeholder="Celular" formControlName="celular">
+                                <div class="pt-1 text-danger" *ngIf="invalid('celular') || celularAux">
+                                    <span class="form-control-feedback">
+                                            <i class="mdi mdi-close-circle"></i> Este campo es <strong>requerido.</strong>
+                                           </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-12 col-md-12 col-xs-12">
+                                <label for="email">Email</label>
+                                <input type="text" id="email" class="form-control" placeholder="Email" formControlName="email">
+                                <div class="pt-1 text-danger" *ngIf="invalid('email') || emailAux">
+                                    <span class="form-control-feedback">
+                                            <i class="mdi mdi-close-circle"></i> Este campo es <strong>requerido.</strong>
+                                           </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group col-lg-12 col-md-12 col-xs-12">
+                                <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                                <input type="date" id="fechaNacimiento" class="form-control" placeholder="fechaNacimiento" formControlName="fechaNacimiento" step="1" min="1995-06-08" max="2003-12-31">
+                                <div class="pt-1 text-danger" *ngIf="invalid('fechaNacimiento') || fechaNacimientoAux">
+                                    <span class="form-control-feedback">
+                                            <i class="mdi mdi-close-circle"></i> Este campo es <strong>requerido.</strong>
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-12 col-md-12 col-xs-12">
+                                <label for="direccion">Direccion</label>
+                                <input type="text" id="direccion" class="form-control" placeholder="Direccion" formControlName="direccion">
+                                <div class="pt-1 text-danger" *ngIf="invalid('direccion') || direccionAux">
+                                    <span class="form-control-feedback">
+                                            <i class="mdi mdi-close-circle"></i> Este campo es <strong>requerido.</strong>
+                                           </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-12 col-md-12 col-xs-12">
+                                <label for="password">Contraseña</label>
+                                <input type="password" id="password" class="form-control" placeholder="Contraseña" formControlName="password">
+                                <div class="pt-1 text-danger" *ngIf="invalid('password') || passwordAux">
+                                    <span class="form-control-feedback">
+                                            <i class="mdi mdi-close-circle"></i> Este campo es <strong>requerido.</strong>
+                                           </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-12 col-md-12 col-xs-12">
+                                <label for="user">Usuario</label>
+                                <input type="text" id="user" class="form-control" placeholder="Usuario" formControlName="user">
+                                <div class="pt-1 text-danger" *ngIf="invalid('user') || userAux">
+                                    <span class="form-control-feedback">
+                                            <i class="mdi mdi-close-circle"></i> Este campo es <strong>requerido.</strong>
+                                           </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <td class="text-center">
+                            <ng-container *ngIf="!editar; else editarRegistroTrabajador">
+                                <button [disabled]="formUser.invalid" type="submit" class="btn btn-success" (click)="operar()" routerLink='/cambiarc'>
+                                    <i class="mdi mdi-pencil mdi-18px" >Registrar</i>
+                                </button>
+                            </ng-container>
+                        </td>
+
+                        <ng-template #editarRegistroTrabajador>
+                            <td class="text-center">
+                                <button [disabled]="formUser.invalid" type="submit" class="btn btn-warning" (click)="operar()">
+                                        <i class="mdi mdi-update mdi-18px">Actualizar</i>
+                                    </button>
+                            </td>
+                        </ng-template>
+
+                        <td class="text-center">
+                            <button type="button" role="button" class="btn btn-danger ml-2" routerLink='/presentarhome'>
+                                    Regresar<i class="mdi mdi-arrow-left-bold mdi-18px"></i>
+                                </button>
+                        </td>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

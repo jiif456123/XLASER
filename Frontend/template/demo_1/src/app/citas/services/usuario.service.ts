@@ -40,4 +40,7 @@ export class UserService {
   eliminar(_id: string) {
     return this.http.delete<any>(`${this.urlEndPoint}/${_id}`);
   };
+  getUserById(id:string){
+    return this.http.get<any>(`${this.urlEndPoint}/${id}`);
+  }
 }

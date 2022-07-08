@@ -48,6 +48,14 @@ import { RegistrarTrabajadorComponent } from './citas/cambiar-password/registrar
 import { AsignarClienteComponent } from './AsignarEquipo/AsignarCliente/asignar-cliente.component';
 import { AsignarTecnicoComponent } from './AsignarEquipo/AsignarTecnico/asignar-tecnico.component';
 import { DetalleEquipoComponent } from './AsignarEquipo/VerDetalle/detalle-equipo.component';
+import { DetalleEquipo2Component } from './VisualizarEquipo/Detalle/detalle-equipo2.component';
+import { VisualizarProductosComponent } from './visualizarproductos/visualizarproductos.component';
+import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
+import { Producto2Component } from './Producto2/producto2.component';
+import { Producto3Component } from './Producto3/producto3.component';
+import { Producto4Component } from './Producto4/producto4.component';
+import { Producto5Component } from './Producto5/producto5.component';
+import { Producto6Component } from './Producto6/producto6.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -107,7 +115,7 @@ const routes: Routes = [
   {
    path: 'reporte-seguimiento', component: ReporteSeguimientoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
   {
-   path: 'registrar-cliente', component: RegistrarClienteComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+   path: 'registrar-cliente', component: RegistrarClienteComponent, pathMatch: 'full' },
   {
    path: 'visualizar-cotizacion', component: VisualizarCotizacionComponent, canActivate: [AuthGuard], pathMatch: 'full' },
   {
@@ -124,7 +132,24 @@ const routes: Routes = [
    path: 'asignar-equipo-tecnico/actualizado/:id', component: AsignarTecnicoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
   {
    path: 'detalle-equipo/visualizacion/:id', component: DetalleEquipoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
-  {path: 'cambiarc', component:  CambiarContraComponent , canActivate: [AuthGuard], pathMatch: 'full' },   
+   {
+    path: 'detalle-equipos/visualizacion/:id', component: DetalleEquipo2Component, canActivate: [AuthGuard], pathMatch: 'full' },
+   {
+    path: 'visualizar-productos', component: VisualizarProductosComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+   {
+    path: 'detalle-producto', component: DetalleProductoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+    {
+      path: 'producto2', component: Producto2Component, canActivate: [AuthGuard], pathMatch: 'full' },
+      {
+        path: 'producto3', component: Producto3Component, canActivate: [AuthGuard], pathMatch: 'full' },
+        {
+          path: 'producto4', component: Producto4Component, canActivate: [AuthGuard], pathMatch: 'full' },
+          {
+            path: 'producto5', component: Producto5Component, canActivate: [AuthGuard], pathMatch: 'full' },
+            {
+              path: 'producto6', component: Producto6Component, canActivate: [AuthGuard], pathMatch: 'full' },
+
+  {path: 'cambiarc', component:  CambiarContraComponent , canActivate: [AuthGuard], pathMatch: 'full' },
   {path: 'login', component: LoginMComponent , pathMatch: 'full'},
   {path: 'welcome-page', component: WelcomePage, pathMatch: 'full'},
   {path: 'gestionar-servicios', component:  GestionarServiciosComponent , canActivate: [AuthGuard], pathMatch: 'full' },

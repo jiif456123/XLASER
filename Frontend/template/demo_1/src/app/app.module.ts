@@ -65,6 +65,13 @@ import { CambiarContraComponent } from './citas/cambiar-password/cambiarpassword
 import { AsignarClienteComponent } from './AsignarEquipo/AsignarCliente/asignar-cliente.component';
 import { AsignarTecnicoComponent } from './AsignarEquipo/AsignarTecnico/asignar-tecnico.component';
 import { DetalleEquipoComponent } from './AsignarEquipo/VerDetalle/detalle-equipo.component';
+import { DetalleEquipo2Component } from './VisualizarEquipo/Detalle/detalle-equipo2.component';
+import { VisualizarProductosComponent } from './visualizarproductos/visualizarproductos.component';
+import { Producto2Component } from './Producto2/producto2.component';
+import { Producto3Component } from './Producto3/producto3.component';
+import { Producto4Component } from './Producto4/producto4.component';
+import { Producto5Component } from './Producto5/producto5.component';
+import { Producto6Component } from './Producto6/producto6.component';
 // AoT requires an exported function for factories
 
 //citaVirtual
@@ -87,6 +94,7 @@ import { RegistrarRegistroTecnicoComponent } from './Registro Tecnico/registrar-
 import { ActualizarRegistroTecnicoComponent } from './Registro Tecnico/actualizar-registro-tecnico/actualizar-registro.component'; 
 import { RegistrarEquipoComponent } from './RegistrarEquipo/registrar-equipo.component';
 import { RegistrarTrabajadorComponent } from './citas/cambiar-password/registrar-trabajador/registrar-trabajador.component';
+import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
 const config: SocketIoConfig = {url: 'http://localhost:3000', options: {withCredentials: '*'}};
 
 //import { BrowserModule  } from '@angular/platform-browser';
@@ -147,6 +155,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     AsignarClienteComponent,
     AsignarTecnicoComponent,
     DetalleEquipoComponent,
+    DetalleEquipo2Component,
+    VisualizarProductosComponent,
+    DetalleProductoComponent,
+    Producto2Component,
+    Producto3Component,
+    Producto4Component,
+    Producto5Component,
+    Producto6Component,
   ],
   imports: [
     BrowserModule,

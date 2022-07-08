@@ -1,0 +1,40 @@
+<div class="head-div">
+    <h1 class="titulo"> Visualizar Productos</h1>
+
+</div>
+
+
+<div class="row">
+    <!--Tabla-->
+    <div class="table-responsive">
+        <table style="width: 100%" class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Funcionalidad</th>
+                    <th scope="col">Wifi</th>
+                    <th scope="col">Estado</th>
+                    <th class="text-center">Detalle</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of equipos">
+                    <td>{{ e.codigo }}</td>
+                    <td>{{ e.tipo }}</td>
+                    <td>{{ e.marca }}</td>
+                    <td>{{ e.funcionalidad }}</td>
+                    <td>{{ e.wifi}}</td>
+                    <td>{{ e.estado}}</td>
+                    <td class="text-center">
+                        <button class="btn btn-secondary btn-sm btn-block" [routerLink]="['/detalle-equipos/visualizacion',e._id]">     
+                            <i class="mdi mdi-update mdi-18px">Detalle</i>   
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

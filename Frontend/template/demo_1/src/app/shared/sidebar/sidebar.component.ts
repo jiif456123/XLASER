@@ -42,6 +42,7 @@ export class SidebarComponent implements OnInit {
   public permitirCLiente;
   public permitirtecnico;
   public permitirVendedor;
+  public permitirUsuario;
   ngOnInit() {
     console.log(this.userAllService.selectedTokenUser.nombre);
     this.getDataOfUser();
@@ -97,6 +98,12 @@ export class SidebarComponent implements OnInit {
           this.permitirCLiente=true;
         }else{
           this.permitirCLiente=false;
+        }
+
+        if(this.rolSideBar=="USUARIO"||this.rolSideBar=="Usuario"){
+          this.permitirUsuario=true;
+        }else{
+          this.permitirUsuario=false;
         }
       },
       err => console.error(err)

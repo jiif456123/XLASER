@@ -257,6 +257,15 @@ var equipoR = new Schema({
 
 var modelEquipoR = mongoose.model('EquipoR', equipoR);
 
+var cantidad = new Schema({
+
+    cantidad: { type: Number },
+}, {
+    versionKey: false
+});
+
+var modelCantidad = mongoose.model('Cantidad', cantidad);
+
 module.exports = {
     modelPaciente: modelPaciente,
     modelEspecialidad: modelEspecialidad,
@@ -274,4 +283,5 @@ module.exports = {
     modelUsuario: modelUsuario,
     modelReporteT: modelReporteT,
     modelEquipoR: modelEquipoR,
+    modelCantidad: modelCantidad,
 }

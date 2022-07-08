@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<h1>Detalle del Producto</h1>
+<div class="card mb-3" style="max-width: 1500px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="../../assets/images/ImagenesImpresora/IMP5.jpg" class="img-fluid rounded-start" alt="IMP5">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">IMPRESORA MULTIFUNCION LASEJET ENTERPISE MFP M776DN</h5>
+                <dl class="row">
+                    <dt class="display-3">Precio 1200</dt>
+                    <form [formGroup]="formcantidad">
+                        <div class="form-row">
+                            <div class="form-group col-lg-16 col-md-16 col-xs-16">
+                                <label for="cantidad">Cantidad</label>
+                                <select id="cantidad" class="form-control" style="color:#000000" formControlName="cantidad">
+            <option *ngFor="let sum of this.suma" [value]="sum.sum">{{sum.sum}}</option>
+              </select>
+                                <div class="pt-1 text-danger" *ngIf="invalid('cantidad') || cantidadAux">
+                                    <span class="form-control-feedback">
+              <i class="mdi mdi-close-circle"></i> Este campo es <strong>requerido.</strong>
+                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <dl class="row">
+
+                        <dt class="col-sm-3">Tecnología de impresión</dt>
+                        <dd class="col-sm-9">Láser</dd>
+
+                        <dt class="col-sm-3">Funciones</dt>
+                        <dd class="col-sm-9">Imprimir, Copia, Escaneado</dd>
+
+                        <dt class="col-sm-3">Impresión en color</dt>
+                        <dd class="col-sm-9">Sí</dd>
+
+                        <dt class="col-sm-3">Formato de impresión</dt>
+                        <dd class="col-sm-9">Hasta A3</dd>
+
+                        <dt class="col-sm-3">Velocidad de impresión bl./n. (hasta)</dt>
+                        <dd class="col-sm-9">46,0 ppm</dd>
+
+                        <dt class="col-sm-3">Velocidad de impresión color (hasta)</dt>
+                        <dd class="col-sm-9">46,0 ppm</dd>
+
+                        <dt class="col-sm-3">Resolución de impresión (hasta)</dt>
+                        <dd class="col-sm-9">1 200 x 1 200 ppp</dd>
+
+                        <dt class="col-sm-3">Entrada de papel</dt>
+                        <dd class="col-sm-9">550 hojas</dd>
+
+                        <dt class="col-sm-3">Alimentación multifuncional</dt>
+                        <dd class="col-sm-9">100 hojas</dd>
+
+                        <dt class="col-sm-3">Incluye</dt>
+                        <dd class="col-sm-9">Tóner, Cable de alimentación</dd>
+
+                        <dt class="col-sm-3">Medidas (An x Alt x F)</dt>
+                        <dd class="col-sm-9">585 x 71 x 663 mm</dd>
+                    </dl>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="button" class="btn btn-primary">Detalle</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

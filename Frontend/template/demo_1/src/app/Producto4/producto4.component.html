@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<h1>Detalle del Producto</h1>
+<div class="card mb-3" style="max-width: 1500px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="../../assets/images/ImagenesImpresora/IMP4.jpg" class="img-fluid rounded-start" alt="IMP4">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">IMPRESORA MULTIFUNCION WG7550F</h5>
+                <dl class="row">
+                    <dt class="display-3">Precio 1800</dt>
+                    <form [formGroup]="formcantidad">
+                        <div class="form-row">
+                            <div class="form-group col-lg-16 col-md-16 col-xs-16">
+                                <label for="cantidad">Cantidad</label>
+                                <select id="cantidad" class="form-control" style="color:#000000" formControlName="cantidad">
+            <option *ngFor="let sum of this.suma" [value]="sum.sum">{{sum.sum}}</option>
+              </select>
+                                <div class="pt-1 text-danger" *ngIf="invalid('cantidad') || cantidadAux">
+                                    <span class="form-control-feedback">
+              <i class="mdi mdi-close-circle"></i> Este campo es <strong>requerido.</strong>
+                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <dl class="row">
+
+                        <dt class="col-sm-3">Máxima resolución de impresión</dt>
+                        <dd class="col-sm-9">1200 x 1200 ppp</dd>
+
+                        <dt class="col-sm-3">Velocidad de impresión dúplex</dt>
+                        <dd class="col-sm-9">25 ppm</dd>
+
+                        <dt class="col-sm-3">Impresión</dt>
+                        <dd class="col-sm-9">Impresión a color</dd>
+
+                        <dt class="col-sm-3">Copiando</dt>
+                        <dd class="col-sm-9">Copia a color</dd>
+
+                        <dt class="col-sm-3">Velocidad de copiado</dt>
+                        <dd class="col-sm-9">50 cpm</dd>
+
+                        <dt class="col-sm-3">Escaneando</dt>
+                        <dd class="col-sm-9">Escaneo a color</dd>
+
+                        <dt class="col-sm-3">Resolución óptica de escáner</dt>
+                        <dd class="col-sm-9">600 x 600 DPI</dd>
+
+                        <dt class="col-sm-3">Área máxima de escaneo</dt>
+                        <dd class="col-sm-9">279,4 x 431,8 mm</dd>
+
+                        <dt class="col-sm-3">Ciclo de trabajo (máximo)</dt>
+                        <dd class="col-sm-9">100000 páginas por mes</dd>
+
+                        <dt class="col-sm-3">Capacidad de entrada total</dt>
+                        <dd class="col-sm-9">2250 hojas</dd>
+
+                        <dt class="col-sm-3">Capacidad de salida total</dt>
+                        <dd class="col-sm-9">250 hojas</dd>
+
+                        <dt class="col-sm-3">Consumo de energía (max)</dt>
+                        <dd class="col-sm-9">300 W</dd>
+                    </dl>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="button" class="btn btn-primary">Detalle</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

@@ -8,12 +8,12 @@ import { UsuarioService } from '../services/usuario.service';
 import { EquipoR } from '../models/equipoR.model';
 import { EquipoRService } from '../services/equipoR.service';
 @Component({
-  selector: 'app-visualizar-producto',
-  templateUrl: './visualizarproducto.component.html',
-  styleUrls: ['./visualizarproducto.component.scss'],
+  selector: 'app-visualizar-productos',
+  templateUrl: './visualizarproductos.component.html',
+  styleUrls: ['./visualizarproductos.component.scss'],
   providers: [DatePipe]
 })
-export class VisualizarProductoComponent implements OnInit {
+export class VisualizarProductosComponent implements OnInit {
 
   equipos: EquipoR[]=[]
   constructor(
@@ -30,7 +30,7 @@ export class VisualizarProductoComponent implements OnInit {
     this.listarCitas();
     this.equipoRService.listar().subscribe(data =>{
       this.equipos = data.data;
-      this.equipos = this.equipos.filter( item => item.cliente == 'Grecia')
+      this.equipos = this.equipos.filter( item => item.cliente == 'Darian')
       console.log(data.data);
     })
   }

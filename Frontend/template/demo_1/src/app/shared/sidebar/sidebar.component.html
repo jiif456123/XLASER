@@ -54,14 +54,6 @@
                 </a>
             </li>
 
-            <li class="nav-item" [ngClass]="{ 'active': gestionarEstadoEquipo.isActive }">
-                <a class="nav-link" routerLink="/gestionar-estado-equipo" routerLinkActive #gestionarEstadoEquipo="routerLinkActive" [routerLinkActiveOptions]="{exact:
-            true}">
-                    <span class="menu-title" translate>Gestionar Estado del Equipo</span>
-                    <i class="icon-screen-desktop menu-icon"></i>
-                </a>
-            </li>
-
             <li class="nav-item" [ngClass]="{ 'active': asignarEquipo.isActive }">
                 <a class="nav-link" routerLink="/asignar-equipo" routerLinkActive #asignarEquipo="routerLinkActive" [routerLinkActiveOptions]="{exact:
             true}">
@@ -95,7 +87,7 @@
                 </a>
             </li>
             <li class="nav-item" [ngClass]="{ 'active': RealizarCotizacion.isActive }">
-                <a class="nav-link" routerLink="/realizar-cotizacion" routerLinkActive #RealizarCotizacion="routerLinkActive" [routerLinkActiveOptions]="{exact:
+                <a class="nav-link" routerLink="/welcome-page" routerLinkActive #RealizarCotizacion="routerLinkActive" [routerLinkActiveOptions]="{exact:
             true}">
                     <span class="menu-title" translate>Realizar Cotizacion</span>
                     <i class="icon-screen-desktop menu-icon"></i>
@@ -156,4 +148,22 @@
                 </a>
             </li>
 
+        </ng-container>
+
+        <ng-container *ngIf="permitirUsuario==true">
+
+            <li class="nav-item" [ngClass]="{ 'active': visualizarproductos.isActive }">
+                <a class="nav-link" routerLink="/visualizar-productos" routerLinkActive #visualizarproductos="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Visualizar Producto</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+            <li class="nav-item" [ngClass]="{ 'active': RealizarCotizacion.isActive }">
+                <a class="nav-link" routerLink="/welcome-page" routerLinkActive #RealizarCotizacion="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Realizar Cotizacion</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
         </ng-container>

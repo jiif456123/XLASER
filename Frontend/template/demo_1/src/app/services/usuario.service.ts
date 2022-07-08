@@ -22,4 +22,7 @@ export class UsuarioService {
       getPacienteById(id: string) {
         return this.http.get<any>(`${this.urlEndPoint}/${id}`);
       }
+      getUserById(id:string){
+        return this.http.get<any>(`${this.urlEndPoint}/${id}`);
+      }
 }

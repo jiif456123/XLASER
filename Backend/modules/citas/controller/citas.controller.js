@@ -16,7 +16,7 @@ const consultarhorario = require('../consultarHorario/horario.Controller');
 const usuarioController = require('../../citas/usuario/usuario.controller');
 const reporteController = require('../../citas/ReporteTecnico/reporteT.controller');
 const equipoController = require('../../xlaser/Equipo/equipo.controller');
-
+const cantidadController = require('../../citas/cantidad/cantidad.controller');
 jwt = require('jsonwebtoken');
 //const express = require('express');
 
@@ -37,6 +37,7 @@ router.use('/especial', especialController);
 router.use('/consultarhorario', consultarhorario);
 router.use('/reportet', reporteController);
 router.use('/equipo', equipoController);
+router.use('/cantidad', cantidadController);
 
 function verifyToken(req, res, next) {
 

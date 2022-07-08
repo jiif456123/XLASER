@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import Swal from 'sweetalert2';
+
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { EquipoR } from '../../models/equipoR.model';
 import { EquipoRService } from '../../services/equipoR.service';
 
 @Component({
-    selector:'app-asignar-tecnico',
-    templateUrl:'./asignar-tecnico.component.html',
-    styleUrls: ['./asignar-tecnico.component.scss']
+    selector:'app-detalle-equipo2',
+    templateUrl:'./detalle-equipo2.component.html',
+    styleUrls: ['./detalle-equipo2.component.scss']
 })
 
-export class AsignarTecnicoComponent implements OnInit{
-
+export class DetalleEquipo2Component implements OnInit{
     tecnico = [
         {
           tec:'David',
@@ -123,8 +122,6 @@ export class AsignarTecnicoComponent implements OnInit{
   descripcionAux: boolean;
   clienteAux: boolean;
   tecnicoAux: boolean;
-  estadoAux: boolean;
-
   constructor(
       private equipoRService: EquipoRService,
       private router: Router,
@@ -149,7 +146,7 @@ export class AsignarTecnicoComponent implements OnInit{
         'wifi':new FormControl('',Validators.required),
         'impresion':new FormControl('',Validators.required),
         'fechaI':new FormControl('07-07-2022',Validators.required),
-        'estado':new FormControl('Reparado',Validators.required),
+        'estado':new FormControl('Asignado',Validators.required),
     });
 
     this.activateRouter.params.subscribe((params:Params ) => {
@@ -208,5 +205,4 @@ export class AsignarTecnicoComponent implements OnInit{
         });
     }
   }
-
 }
