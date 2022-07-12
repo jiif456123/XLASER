@@ -82,6 +82,18 @@
                             S/ {{ SUM1 | currency:' '}}
                         </td>
                     </tr>
+                    <tr>
+                        <td>IGV:</td>
+                        <td>
+                            S/ {{ SUM1*0.18 | currency:' '}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>El precio total:</td>
+                        <td>
+                            S/ {{ SUM1+(SUM1*0.18) | currency:' '}}
+                        </td>
+                    </tr>
                 </dl>
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <button type="button" class="btn btn-primary" routerLink='/welcome-page'>Regresar</button>

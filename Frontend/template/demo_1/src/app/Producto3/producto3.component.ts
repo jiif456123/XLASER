@@ -39,7 +39,7 @@ export class Producto3Component implements OnInit {
 
       id: string;
       editar: boolean;
-    
+
       reportet: ReporteT;
       cantidad: Cantidad;
       registrarcantidad: ReporteT;
