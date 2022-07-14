@@ -56,6 +56,8 @@ import { Producto3Component } from './Producto3/producto3.component';
 import { Producto4Component } from './Producto4/producto4.component';
 import { Producto5Component } from './Producto5/producto5.component';
 import { Producto6Component } from './Producto6/producto6.component';
+import { RegistrarReporteSeguimientoComponent } from './RealizarReporteSeguimiento/Registrar/registrar-reporte-seguimiento.component';
+import { ActualizarReporteSeguimientoComponent } from './RealizarReporteSeguimiento/actualizar/actualizar-reporte-seguimiento.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -138,16 +140,20 @@ const routes: Routes = [
     path: 'visualizar-productos', component: VisualizarProductosComponent, canActivate: [AuthGuard], pathMatch: 'full' },
    {
     path: 'detalle-producto', component: DetalleProductoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
-    {
-      path: 'producto2', component: Producto2Component, canActivate: [AuthGuard], pathMatch: 'full' },
-      {
-        path: 'producto3', component: Producto3Component, canActivate: [AuthGuard], pathMatch: 'full' },
-        {
-          path: 'producto4', component: Producto4Component, canActivate: [AuthGuard], pathMatch: 'full' },
-          {
-            path: 'producto5', component: Producto5Component, canActivate: [AuthGuard], pathMatch: 'full' },
-            {
-              path: 'producto6', component: Producto6Component, canActivate: [AuthGuard], pathMatch: 'full' },
+   {
+    path: 'producto2', component: Producto2Component, canActivate: [AuthGuard], pathMatch: 'full' },
+   {
+    path: 'producto3', component: Producto3Component, canActivate: [AuthGuard], pathMatch: 'full' },
+   {
+    path: 'producto4', component: Producto4Component, canActivate: [AuthGuard], pathMatch: 'full' },
+   {
+    path: 'producto5', component: Producto5Component, canActivate: [AuthGuard], pathMatch: 'full' },
+   {
+    path: 'producto6', component: Producto6Component, canActivate: [AuthGuard], pathMatch: 'full' },
+   {
+    path: 'registrar-reporte/registrado', component: RegistrarReporteSeguimientoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+   {
+    path: 'actualizar-reporte/actualizado/:id', component: ActualizarReporteSeguimientoComponent, canActivate: [AuthGuard], pathMatch: 'full' },
 
   {path: 'cambiarc', component:  CambiarContraComponent , canActivate: [AuthGuard], pathMatch: 'full' },
   {path: 'login', component: LoginMComponent , pathMatch: 'full'},

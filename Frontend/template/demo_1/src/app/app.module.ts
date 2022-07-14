@@ -72,6 +72,8 @@ import { Producto3Component } from './Producto3/producto3.component';
 import { Producto4Component } from './Producto4/producto4.component';
 import { Producto5Component } from './Producto5/producto5.component';
 import { Producto6Component } from './Producto6/producto6.component';
+import { RegistrarReporteSeguimientoComponent } from './RealizarReporteSeguimiento/Registrar/registrar-reporte-seguimiento.component';
+import { ActualizarReporteSeguimientoComponent } from './RealizarReporteSeguimiento/actualizar/actualizar-reporte-seguimiento.component';
 // AoT requires an exported function for factories
 
 //citaVirtual
@@ -163,6 +165,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     Producto4Component,
     Producto5Component,
     Producto6Component,
+    RegistrarReporteSeguimientoComponent,
+    ActualizarReporteSeguimientoComponent
   ],
   imports: [
     BrowserModule,
