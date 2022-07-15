@@ -72,13 +72,6 @@
         </ng-container>
 
         <ng-container *ngIf="permitirCLiente==true">
-            <li class="nav-item" [ngClass]="{ 'active': registrarCliente.isActive }">
-                <a class="nav-link" routerLink="/registrar-cliente" routerLinkActive #registrarCliente="routerLinkActive" [routerLinkActiveOptions]="{exact:
-            true}">
-                    <span class="menu-title" translate>Registrar Cliente</span>
-                    <i class="icon-screen-desktop menu-icon"></i>
-                </a>
-            </li>
             <li class="nav-item" [ngClass]="{ 'active': realizarreporte.isActive }">
                 <a class="nav-link" routerLink="/reporte-seguimiento" routerLinkActive #realizarreporte="routerLinkActive" [routerLinkActiveOptions]="{exact:
             true}">
@@ -163,6 +156,14 @@
                 <a class="nav-link" routerLink="/welcome-page" routerLinkActive #RealizarCotizacion="routerLinkActive" [routerLinkActiveOptions]="{exact:
             true}">
                     <span class="menu-title" translate>Realizar Cotizacion</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
+            </li>
+
+            <li class="nav-item" [ngClass]="{ 'active': realizarreporte.isActive }">
+                <a class="nav-link" routerLink="/reporte-seguimiento" routerLinkActive #realizarreporte="routerLinkActive" [routerLinkActiveOptions]="{exact:
+            true}">
+                    <span class="menu-title" translate>Realizar Reporte S</span>
                     <i class="icon-screen-desktop menu-icon"></i>
                 </a>
             </li>

@@ -43,10 +43,10 @@
                         <div class="form-row">
                             <div class="form-group col-lg-12 col-md-12 col-xs-12">
                                 <label for="dni">DNI</label>
-                                <input type="text" id="dni" class="form-control" placeholder="DNI" formControlName="dni">
+                                <input type="number" id="dni" class="form-control" placeholder="DNI" formControlName="dni" pattern="[0-9]{8}">
                                 <div class="pt-1 text-danger" *ngIf="invalid('dni') || dniAux">
                                     <span class="form-control-feedback">
-                                            <i class="mdi mdi-close-circle"></i> Este campo es <strong>requerido.</strong>
+                                            <i class="mdi mdi-close-circle"></i> Insertar <strong> un DNI valido.</strong>
                                            </span>
                                 </div>
                             </div>
@@ -54,10 +54,10 @@
                         <div class="form-row">
                             <div class="form-group col-lg-12 col-md-12 col-xs-12">
                                 <label for="celular">Celular</label>
-                                <input type="text" id="celular" class="form-control" placeholder="Celular" formControlName="celular">
+                                <input type="number" id="celular" class="form-control" placeholder="Celular" formControlName="celular" pattern="[0-9]{9}">
                                 <div class="pt-1 text-danger" *ngIf="invalid('celular') || celularAux">
                                     <span class="form-control-feedback">
-                                            <i class="mdi mdi-close-circle"></i> Este campo es <strong>requerido.</strong>
+                                            <i class="mdi mdi-close-circle"></i> Ingresar un número <strong>válido de 9 digitos.</strong>
                                            </span>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                         <div class="form-row">
                             <div class="form-group col-lg-12 col-md-12 col-xs-12">
                                 <label for="email">Email</label>
-                                <input type="text" id="email" class="form-control" placeholder="Email" formControlName="email">
+                                <input type="email" id="email" class="form-control" placeholder="Email" formControlName="email">
                                 <div class="pt-1 text-danger" *ngIf="invalid('email') || emailAux">
                                     <span class="form-control-feedback">
                                             <i class="mdi mdi-close-circle"></i> Este campo es <strong>requerido.</strong>

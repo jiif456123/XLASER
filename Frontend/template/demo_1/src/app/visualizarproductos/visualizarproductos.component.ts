@@ -30,7 +30,7 @@ export class VisualizarProductosComponent implements OnInit {
     this.listarCitas();
     this.equipoRService.listar().subscribe(data =>{
       this.equipos = data.data;
-      this.equipos = this.equipos.filter( item => item.cliente == 'Darian')
+      this.equipos = this.equipos.filter( item => item.cliente == 'Alonso')
       console.log(data.data);
     })
   }

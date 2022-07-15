@@ -16,15 +16,8 @@ export class AsignarClienteComponent implements OnInit{
     cliente = [
         {
           cli:'Grecia',
-        },
-        {
-            cli:'Rodrigo',
         },{
-            cli:'Sergio',
-        },{
-            cli:'Darian',
-        },{
-            cli:'Renzo',
+          cli:'Alonso',
         },
       ]
 

@@ -134,7 +134,7 @@ this.formEquipoR = new FormGroup({
   'color':new FormControl('',Validators.required),
   'wifi':new FormControl('',Validators.required),
   'impresion':new FormControl('',Validators.required),
-  'fechaI':new FormControl('07-07-2022',Validators.required),
+  'fechaI':new FormControl('14-07-2022',Validators.required),
   'estado':new FormControl('Disponible',Validators.required),
 });
 

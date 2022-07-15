@@ -67,12 +67,12 @@ this.formUser = new FormGroup({
     'apellidoPaterno':new FormControl('',Validators.required),
     'apellidoMaterno':new FormControl('',Validators.required),
     'dni':new FormControl('',Validators.required),
-    'celular':new FormControl('',Validators.required),
+    'celular':new FormControl('',[Validators.required, Validators.pattern(/^[0-9]\d*$/)]),
     'email':new FormControl('', Validators.required),
     'fechaNacimiento': new FormControl('',Validators.required),
     'direccion':new FormControl('',Validators.required),
     'password':new FormControl('',Validators.required),
-    'fechaActual':new FormControl('2022-06-06',Validators.required),
+    'fechaActual':new FormControl('',Validators.required),
     'user':new FormControl('',Validators.required),
 });
 

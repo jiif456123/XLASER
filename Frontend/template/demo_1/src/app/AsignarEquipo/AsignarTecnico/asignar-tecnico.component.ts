@@ -18,11 +18,6 @@ export class AsignarTecnicoComponent implements OnInit{
         {
           tec:'David',
         },
-        {
-            tec:'Dominic',
-        },{
-            tec:'Bryan',
-        },
       ]
 
     codigo = [

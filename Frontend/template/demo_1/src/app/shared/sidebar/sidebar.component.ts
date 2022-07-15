@@ -43,6 +43,7 @@ export class SidebarComponent implements OnInit {
   public permitirtecnico;
   public permitirVendedor;
   public permitirUsuario;
+
   ngOnInit() {
     console.log(this.userAllService.selectedTokenUser.nombre);
     this.getDataOfUser();
